@@ -1,56 +1,32 @@
 /* CSS HEX */
-:root{
---rich-black-fogra-39: #0b090aff;
---eerie-black: #161a1dff;
---blood-red: #660708ff;
---ruby-red: #a4161aff;
---carnelian: #ba181bff;
---imperial-red: #e5383bff;
---black-shadows: #b1a7a6ff;
---light-gray: #d3d3d3ff;
---cultured: #f5f3f4ff;
---white: #ffffffff;
+:root {
+    --rich-black-fogra-39: #0b090aff;
+    --eerie-black: #161a1dff;
+    --blood-red: #660708ff;
+    --ruby-red: #a4161aff;
+    --carnelian: #ba181bff;
+    --imperial-red: #e5383bff;
+    --black-shadows: #b1a7a6ff;
+    --light-gray: #d3d3d3ff;
+    --cultured: #f5f3f4ff;
+    --white: #ffffffff;
 }
 
-body{
-    background: var(--black-shadows);
+body {
+    background: var(--eerie-black);
+    font-family: 'Montserrat', sans-serif;
 }
 
-.about{
-    font-family: Arial, Helvetica, sans-serif;
+.name {
+    color: var(--blood-red);
 }
 
-.name{
-    font-style: oblique;
-    color: var(--carnelian);
+.photo {
+    border: #f5f3f4ff solid 1px;
+    box-sizing: content-box;
 }
 
-.city{
-    color: var(--ruby-red);
-}
-
-.nacionality{
-    font-weight: 600;
-    color: var(--imperial-red);
-}
-
-#selfie{
-    font-size: 2em;
-}
-
-#rpg{
-    font-size: 1.5em;
-}
-
-#fotos{
-    font-size: 0.5em;
-}
-
-#webDev{
-    color: var(--cultured);
-    line-height: 3em;
-}
-
-#humor{
-    text-decoration: line-through;
+.about {
+    background-color: var(--cultured);
+    padding: 5px;
 }
