@@ -1,38 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/styles.css">
-    <title>Portifólio</title>
+    <title>Felipe Lippelt - Web Developer FullStack</title>
 </head>
+
 <body>
-    <div class="about">  <img id="minhaFoto" src="images/eu.jpg" alt="Foto minha no Campo de Marte usando óculos escuros estilo aviador e ao fundo a Torre Eiffel" width="300px"><br>
-    <p id="sobre">Olá, meu nome é <span class="name">Felipe Lippelt</span>, sou <span class="nacionality">brasileiro</span> natural de <span class="city">São Paulo/SP</span> e esse será meu futuro portifólio</p>
+    <!-- ?Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Lippelt</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- TODO Future Pages -->
+                    <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Sobre Mim</a>
+              </li>
+              <li class="nav-item"><a href="#" class="nav-link">Portifólio</a>
+            </li> -->
+                    <!-- TODO Future Dropdown -->
+                    <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ?Main Page -->
+    <div class="container main">
+        <div class="name">
+            <h1>Felipe Lippelt</h1>
+        </div>
+        <div class="row row-cols-2">
+            <div class="col">
+                <div class="photo">
+                    <img src="./images/eu.jpg" width="300px"
+                        alt="Foto de Felpe Lippelt no Campo de Marte com a Torre Eiffel ao fundo">
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="about">
+                    <p>Brasileiro, Nascido em São Paulo/SP. Começou sua carreira de programador aos 20 anos na primeira
+                        faculdade focada em Jogos Digitais sem muito sucesso.</p>
+                    <p>Após anos flertando com outras áreas da Tecnologia da Informação, decidiu voltar a programação
+                        dessa
+                        vez se dedicando exclusivamente ao bootcamp de Web Developer Fullstack ministrado pela <a
+                            href="http://betrybe.com" target="_blank" rel="noopener noreferrer">Trybe</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>Possuo uma lista de habilidades assaz incomuns:</p>
-    <ul>
-        <li id="rpg">Sou um <strong>ótimo</strong> contador de estórias</li>
-        <li id="selfie">Tenho uma habilidade <s>questionável</s> razoável para <em>selfies</em>.</li>
-        <li id="fotos">Amo fotografia e tiro boas fotos</li>
-        <li id="webDev">Estou aprendendo a ser um <strong>Desenvolvedor Web</strong> pelo curso da <a href="http://betrybe.com" target="_blank" rel="noopener noreferrer">Trybe</a></li>
-        <li id="humor">Tenho um ótimo senso de humor</li>
-    </ul>
-<span class="city"></span>
-    <p>Aqui estão alguns sites que recomendo:</p>
-    <ul>
-        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></li>
-        <li><a href="https://coolors.co/" target="_blank" rel="noopener noreferrer">Coolors</a></li>
-        <li><a href="https://stackoverflow.com/" target="_blank" rel="noopener noreferrer">StackOverflow</a></li>
-    </ul>
-    <a href="#sobre">Sobre Mim</a><br>
-    <a href="#minhaFoto">Minha Foto</a><br>
-    <a href="#rpg">Habilidade 1</a><br>
-    <a href="#selfie">Habilidade 2/a><br>
-    <a href="#fotos">Habilidade 3</a><br>
-    <a href="#webDev">Habilidade 4</a><br>
-    <a href="#humor">Habilidade 5</a><br> 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
+    </script>
+
+
 </body>
+
 </html>
