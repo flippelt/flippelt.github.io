@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.color {
+  display: inline-block;
+  margin-left: 30px;
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+}
+
+
+#pixel-board {
+  display: flex;
+  height: 240px;
+  width: 240px;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
