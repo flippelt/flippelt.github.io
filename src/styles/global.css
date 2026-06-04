@@ -59,7 +59,7 @@ code {
    (próxima das outras seções) mas reduzida o suficiente para não invadir o
    menu lateral de metrô em telas largas. */
 .hero-crt {
-  width: min(1080px, 100%);
+  width: min(1180px, 100%);
   min-height: min(440px, 70vh);
 }
 
