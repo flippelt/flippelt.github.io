@@ -100,6 +100,47 @@ code {
   text-shadow: 0 0 10px var(--accent);
 }
 
+/* ============================== Sobre ============================== */
+
+.about {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(3rem, 9vw, 6rem) clamp(1rem, 4vw, 2rem) 0;
+}
+
+.about__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--accent);
+  margin: 0 0 1rem;
+  letter-spacing: 0.05em;
+}
+
+.about__body {
+  max-width: 64ch;
+  border-left: 2px solid var(--line);
+  padding-left: clamp(1rem, 3vw, 1.75rem);
+}
+
+.about__body p {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+}
+
+.about__body p:last-child {
+  margin-bottom: 0;
+}
+
+.about__body strong {
+  color: var(--fg);
+  font-weight: bold;
+}
+
+.about__body em {
+  color: var(--accent);
+  font-style: normal;
+}
+
 /* ============================ Projetos ============================ */
 
 .projects {
