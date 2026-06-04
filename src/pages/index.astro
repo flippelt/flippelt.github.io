@@ -2,12 +2,14 @@
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/Hero.tsx'
 import ProjectCard from '../components/ProjectCard.astro'
+import MetroNav from '../components/MetroNav.astro'
 import { projects } from '../data/projects'
 ---
 
 <Layout>
+  <MetroNav />
   <main>
-    <section class="hero" aria-label="Apresentação">
+    <section id="inicio" class="hero" aria-label="Apresentação">
       <Hero client:load />
     </section>
 
@@ -54,7 +56,7 @@ import { projects } from '../data/projects'
       </div>
     </section>
 
-    <footer class="footer">
+    <footer id="links" class="footer">
       <p>
         Feito por Felipe Lippelt ·
         <a href="https://github.com/flippelt" target="_blank" rel="noopener noreferrer">github.com/flippelt</a>

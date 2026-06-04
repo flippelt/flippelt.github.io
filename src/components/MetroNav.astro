@@ -1,0 +1,167 @@
+---
+// Vertical "metro map" page nav: fixed on the left, one station per section.
+// Clickable (anchor jumps, smooth-scroll via global scroll-behavior) and
+// scrollspy-highlighted so you always see where you are. Hidden on small
+// screens, where normal scrolling is the natural affordance.
+const stations = [
+  { id: 'inicio', label: 'início' },
+  { id: 'sobre', label: 'sobre' },
+  { id: 'projetos', label: 'projetos' },
+  { id: 'links', label: 'links' }
+]
+---
+
+<nav class="metro" aria-label="Mapa da página">
+  <ul class="metro__line">
+    {
+      stations.map((s, i) => (
+        <li class="metro__stop">
+          <a
+            class="metro__link"
+            href={`#${s.id}`}
+            data-stop={s.id}
+            aria-current={i === 0 ? 'true' : undefined}
+          >
+            <span class="metro__dot" aria-hidden="true" />
+            <span class="metro__label">{s.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .metro {
+    position: fixed;
+    left: clamp(0.75rem, 2.5vw, 1.75rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+  }
+  .metro__line {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.1rem, 4vh, 2.2rem);
+  }
+  /* The metro "line" runs through the dot centres (dot is 12px → centre 6px). */
+  .metro__line::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--line);
+  }
+  .metro__link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--fg-dim);
+  }
+  .metro__dot {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--fg-dim);
+    background: var(--bg);
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .metro__label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    opacity: 0.72;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease,
+      text-shadow 0.2s ease;
+  }
+  .metro__link:hover .metro__label,
+  .metro__link:focus-visible .metro__label {
+    opacity: 1;
+    color: var(--fg);
+  }
+  .metro__link:hover .metro__dot,
+  .metro__link:focus-visible .metro__dot {
+    border-color: var(--accent);
+  }
+  /* Active station (set by the scrollspy below). */
+  .metro__link[aria-current='true'] .metro__dot {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .metro__link[aria-current='true'] .metro__label {
+    opacity: 1;
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-soft);
+  }
+
+  /* Plenty of room on wide screens; on narrow ones, normal scroll wins. */
+  @media (max-width: 960px) {
+    .metro {
+      display: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .metro__dot,
+    .metro__label {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Scrollspy: highlight the station for the section crossing ~40% of the
+  // viewport, with a bottom-of-page fallback so the last stop lights up.
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.metro__link'))
+  const stops = links
+    .map((link) => ({ link, el: document.getElementById(link.dataset.stop || '') }))
+    .filter((s): s is { link: HTMLAnchorElement; el: HTMLElement } => !!s.el)
+
+  if (stops.length) {
+    const setActive = (id: string) => {
+      for (const { link } of links.map((link) => ({ link }))) {
+        if (link.dataset.stop === id) link.setAttribute('aria-current', 'true')
+        else link.removeAttribute('aria-current')
+      }
+    }
+
+    let ticking = false
+    const update = () => {
+      ticking = false
+      const mid = window.scrollY + window.innerHeight * 0.4
+      let active = stops[0]
+      for (const s of stops) {
+        if (s.el.getBoundingClientRect().top + window.scrollY <= mid) active = s
+      }
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+      if (atBottom) active = stops[stops.length - 1]
+      setActive(active.link.dataset.stop || '')
+    }
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(update)
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    update()
+  }
+</script>
