@@ -55,11 +55,11 @@ code {
   padding: clamp(1rem, 4vw, 3rem);
 }
 
-/* O CRTScreen do rpg-prop-kit é o quadro; aqui só dimensionamos. Largura
-   acompanha a coluna de conteúdo (--maxw) para cobrir a mesma área das outras
-   seções. */
+/* O CRTScreen do rpg-prop-kit é o quadro; aqui só dimensionamos. Largura ampla
+   (próxima das outras seções) mas reduzida o suficiente para não invadir o
+   menu lateral de metrô em telas largas. */
 .hero-crt {
-  width: min(var(--maxw), 100%);
+  width: min(1080px, 100%);
   min-height: min(440px, 70vh);
 }
 
