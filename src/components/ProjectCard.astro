@@ -1,0 +1,38 @@
+---
+import type { Project } from '../data/projects'
+
+interface Props {
+  project: Project
+}
+
+const { project } = Astro.props
+---
+
+<article class="card">
+  <header class="card__head">
+    <h3 class="card__name">{project.name}</h3>
+    {project.badge && <span class="card__badge">{project.badge}</span>}
+  </header>
+
+  <p class="card__tagline">{project.tagline}</p>
+  <p class="card__desc">{project.description}</p>
+
+  <ul class="card__stack" aria-label="Tecnologias">
+    {project.stack.map((tech) => <li>{tech}</li>)}
+  </ul>
+
+  <div class="card__links">
+    {
+      project.links.map((link) => (
+        <a
+          class:list={['card__link', { 'card__link--primary': link.primary }]}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {link.label} ↗
+        </a>
+      ))
+    }
+  </div>
+</article>

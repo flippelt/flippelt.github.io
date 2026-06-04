@@ -1,0 +1,33 @@
+---
+import '@fontsource/vt323'
+import '@fontsource/share-tech-mono'
+import 'rpg-prop-kit/styles.css'
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Felipe Lippelt — Ferramentas para RPG de mesa',
+  description = 'Projetos autorais de software para mestres e mesas de RPG: bibliotecas, apps em tempo real e ferramentas de imersão.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,285 @@
+:root {
+  --bg: #04080a;
+  --bg-soft: #0a1014;
+  --fg: #d6f5e3;
+  --fg-dim: #7fae93;
+  --accent: #39ff89;
+  --accent-soft: rgba(57, 255, 137, 0.14);
+  --line: rgba(57, 255, 137, 0.22);
+  --font-display: 'VT323', monospace;
+  --font-mono: 'Share Tech Mono', ui-monospace, 'Cascadia Code', monospace;
+  --maxw: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #0b1a14 0%, var(--bg) 60%),
+    var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+}
+
+/* ============================== Hero ============================== */
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+/* O CRTScreen do rpg-prop-kit é o quadro; aqui só dimensionamos. */
+.hero-crt {
+  width: min(720px, 100%);
+  min-height: min(440px, 70vh);
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: inherit;
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* A última linha do boot (o nome) ganha presença de título. */
+.hero-inner :global(.rpk-boot__line:nth-child(4)) {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin: 0.3rem 0 0.1rem;
+}
+
+.hero-cta {
+  margin-top: 1.8rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  pointer-events: none;
+}
+
+.hero-cta--show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hero-cta:hover {
+  text-shadow: 0 0 10px var(--accent);
+}
+
+/* ============================ Projetos ============================ */
+
+.projects {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(3rem, 9vw, 6rem) clamp(1rem, 4vw, 2rem) 2rem;
+}
+
+.projects__intro {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+  max-width: 60ch;
+}
+
+.projects__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.projects__lead {
+  color: var(--fg-dim);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ============================== Card ============================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--bg-soft), #060c0e);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Scanlines sutis, no espírito CRT da vitrine. */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    rgba(0, 0, 0, 0.16) 2px 4px
+  );
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -12px rgba(57, 255, 137, 0.35);
+}
+
+.card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.card__name {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.card__badge {
+  flex: none;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.card__tagline {
+  color: var(--fg);
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.02rem;
+}
+
+.card__desc {
+  color: var(--fg-dim);
+  margin: 0 0 1.1rem;
+  font-size: 0.95rem;
+}
+
+.card__stack {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.card__stack li {
+  font-size: 0.78rem;
+  color: var(--fg-dim);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+.card__links {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.card__link {
+  font-size: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  color: var(--fg);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card__link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.card__link--primary {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: bold;
+}
+
+.card__link--primary:hover {
+  background: var(--fg);
+  border-color: var(--fg);
+}
+
+/* ============================= Footer ============================= */
+
+.footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 2rem) 4rem;
+  border-top: 1px solid var(--line);
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+}
+
+.footer__note {
+  margin-bottom: 0;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-cta {
+    transition: none;
+  }
+}
