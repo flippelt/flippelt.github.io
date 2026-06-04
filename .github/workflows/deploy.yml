@@ -1,11 +1,11 @@
 name: Deploy to GitHub Pages
 
-# Preparado para o go-live, mas com gatilho MANUAL por enquanto
-# (workflow_dispatch). Troque para `on: push` quando:
-#   1. o repositório for público OU estiver em GitHub Pro;
-#   2. Settings -> Pages -> Source estiver em "GitHub Actions";
-#   3. o DNS de lippelt.dev apontar para o GitHub Pages (ver public/CNAME).
+# Deploys on every push to main (and manually). Requires Settings -> Pages ->
+# Source = "GitHub Actions", and the repo public (or GitHub Pro) for the
+# flippelt.github.io user site to be served.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

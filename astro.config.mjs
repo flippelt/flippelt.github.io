@@ -1,11 +1,11 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 
-// Domínio próprio (lippelt.dev) servido na raiz. O CNAME em public/ aponta o
-// domínio para o GitHub Pages. Dá para sobrescrever no build via env, se um dia
-// for servido em subpasta.
+// User site served at the root of https://flippelt.github.io (repo named
+// flippelt.github.io). base stays "/"; override SITE/BASE via env if ever
+// moved to a custom domain or subpath.
 const base = process.env.BASE ?? '/'
-const site = process.env.SITE ?? 'https://lippelt.dev'
+const site = process.env.SITE ?? 'https://flippelt.github.io'
 
 // https://astro.build/config
 export default defineConfig({
