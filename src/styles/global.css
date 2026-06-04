@@ -8,7 +8,7 @@
   --line: rgba(57, 255, 137, 0.22);
   --font-display: 'VT323', monospace;
   --font-mono: 'Share Tech Mono', ui-monospace, 'Cascadia Code', monospace;
-  --maxw: 1120px;
+  --maxw: 1280px;
 }
 
 *,
@@ -185,8 +185,8 @@ code {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 1.5rem;
 }
 
 /* ============================== Card ============================== */

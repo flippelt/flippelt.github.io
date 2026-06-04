@@ -34,7 +34,9 @@ const stations = [
 <style>
   .metro {
     position: fixed;
-    left: clamp(0.75rem, 2.5vw, 1.75rem);
+    /* Hug the left of the centred content column on wide screens; clamp to the
+       viewport edge on narrower ones (hidden entirely below the breakpoint). */
+    left: max(1rem, calc(50% - var(--maxw) / 2 - 3.25rem));
     top: 50%;
     transform: translateY(-50%);
     z-index: 50;
@@ -46,7 +48,8 @@ const stations = [
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: clamp(1.1rem, 4vh, 2.2rem);
+    /* Roomy: the diagonal labels need vertical clearance not to overlap. */
+    gap: clamp(2rem, 5.5vh, 3.2rem);
   }
   /* The metro "line" runs through the dot centres (dot is 12px → centre 6px). */
   .metro__line::before {
@@ -81,10 +84,14 @@ const stations = [
   }
   .metro__label {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     letter-spacing: 0.06em;
     white-space: nowrap;
     opacity: 0.72;
+    /* Diagonal station names, subway-map style. Pivot from the dot side so the
+       text rises to the right. */
+    transform: rotate(-45deg);
+    transform-origin: left center;
     transition:
       color 0.2s ease,
       opacity 0.2s ease,
@@ -111,8 +118,9 @@ const stations = [
     text-shadow: 0 0 8px var(--accent-soft);
   }
 
-  /* Plenty of room on wide screens; on narrow ones, normal scroll wins. */
-  @media (max-width: 960px) {
+  /* Needs margin beside the (wider) content column; below this, normal scroll
+     is the affordance and the nav is hidden. */
+  @media (max-width: 1080px) {
     .metro {
       display: none;
     }
