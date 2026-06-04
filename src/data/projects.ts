@@ -40,7 +40,7 @@ export const projects: Project[] = [
     links: [
       {
         label: 'Demo ao vivo',
-        href: 'https://flippelt.github.io/Immersive-Terminal-for-RPGs/demo/',
+        href: 'https://flippelt.github.io/Immersive-Terminal-for-RPGs/',
         primary: true,
       },
       { label: 'Código', href: 'https://github.com/flippelt/Immersive-Terminal-for-RPGs' },
