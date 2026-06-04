@@ -27,14 +27,18 @@ export default function Hero() {
           cursor
           onDone={() => setDone(true)}
         />
-        <a
-          className={`hero-cta${done ? ' hero-cta--show' : ''}`}
-          href="#projetos"
+        <nav
+          className={`hero-cta-row${done ? ' hero-cta-row--show' : ''}`}
+          aria-label="Navegação"
           aria-hidden={!done}
-          tabIndex={done ? 0 : -1}
         >
-          ▾ ver projetos
-        </a>
+          <a className="hero-cta" href="#sobre" tabIndex={done ? 0 : -1}>
+            ▾ sobre
+          </a>
+          <a className="hero-cta" href="#projetos" tabIndex={done ? 0 : -1}>
+            ▾ projetos
+          </a>
+        </nav>
       </div>
     </CRTScreen>
   )

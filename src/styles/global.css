@@ -78,10 +78,11 @@ code {
   margin: 0.3rem 0 0.1rem;
 }
 
-.hero-cta {
+.hero-cta-row {
   margin-top: 1.8rem;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   opacity: 0;
   transform: translateY(6px);
   transition:
@@ -90,13 +91,28 @@ code {
   pointer-events: none;
 }
 
-.hero-cta--show {
+.hero-cta-row--show {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
+.hero-cta {
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  color: var(--fg);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
 .hero-cta:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
   text-shadow: 0 0 10px var(--accent);
 }
 
@@ -320,7 +336,7 @@ code {
   html {
     scroll-behavior: auto;
   }
-  .hero-cta {
+  .hero-cta-row {
     transition: none;
   }
 }
