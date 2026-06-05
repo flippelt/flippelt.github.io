@@ -13,6 +13,8 @@ export interface Project {
   links: ProjectLink[]
   /** Selo curto (ex.: "Publicado no npm"). */
   badge?: string
+  /** Projetos em destaque: ordenados primeiro (menor = antes) e com borda "shiny". */
+  featured?: number
 }
 
 // Apenas projetos autorais e públicos. Ficam de fora, de propósito:
@@ -59,6 +61,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Immersive Terminal',
+    featured: 1,
     tagline: 'Emulador de terminal retrô interativo para mesas de RPG',
     description:
       'Terminal jogável que simula sistemas (Alien, Lancer, Blade Runner, Fallout e mais). O mestre monta cenários em JSON; os jogadores exploram com comandos, decriptam e invadem arquivos. Bilíngue (PT-BR/EN) e 100% offline.',
@@ -87,6 +90,7 @@ export const projects: Project[] = [
   },
   {
     name: 'GM Control Room',
+    featured: 3,
     tagline: 'Painel de controle de sessão de RPG em tempo real',
     description:
       'Dashboard multi-dispositivo para o mestre: cenas adaptativas (typewriter, pergaminho, terminal CRT), iluminação/clima, mixer de áudio, integração com Spotify, dados, tracker de combate e histórico de rolagens — tudo sincronizado via WebSocket. A tela dos jogadores é PWA instalável. Suporta 11 sistemas via @lippelt/srd-*.',
@@ -95,6 +99,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Campaign Codex',
+    featured: 2,
     tagline: 'Wiki de campanhas de RPG, estática e temática',
     description:
       'Gerador de wiki multi-campanha a partir de Markdown: história, mapas, NPCs, eventos e personagens, com temas visuais por gênero (sci-fi, fantasia, cyberpunk e mais).',

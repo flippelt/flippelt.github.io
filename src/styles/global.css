@@ -228,6 +228,50 @@ code {
   box-shadow: 0 10px 30px -12px rgba(57, 255, 137, 0.35);
 }
 
+/* ===== Cartas em destaque: borda holográfica "shiny" (estilo foil de TCG) ===== */
+@property --shiny-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card--shiny {
+  border-color: transparent;
+  border-width: 2px;
+  /* Fundo do card (padding-box) + holo girando na borda (border-box). */
+  background:
+    linear-gradient(180deg, var(--bg-soft), #060c0e) padding-box,
+    conic-gradient(
+      from var(--shiny-angle),
+      #39ff89,
+      #39d0ff,
+      #b066ff,
+      #ff6bd6,
+      #ffd86b,
+      #39ff89
+    ) border-box;
+  box-shadow: 0 0 18px -6px rgba(57, 255, 137, 0.5);
+  animation: shiny-spin 6s linear infinite;
+}
+
+.card--shiny:hover {
+  /* Mantém a holo na borda (não troca pelo verde sólido do hover). */
+  border-color: transparent;
+  box-shadow: 0 12px 32px -10px rgba(57, 255, 137, 0.55);
+}
+
+@keyframes shiny-spin {
+  to {
+    --shiny-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card--shiny {
+    animation: none;
+  }
+}
+
 .card__head {
   display: flex;
   align-items: baseline;
