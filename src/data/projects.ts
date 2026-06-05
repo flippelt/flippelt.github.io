@@ -31,11 +31,11 @@ export const projects: Project[] = [
   },
   {
     name: 'gmcr-srd-systems',
-    tagline: 'Monorepo de regras SRD pra sistemas de RPG (D&D 5e, Lancer, Daggerheart…)',
+    tagline: 'Monorepo de regras SRD pra 11 sistemas de RPG (D&D, Pathfinder, Starfinder, Lancer, Daggerheart…)',
     description:
-      'Cada sistema é um pacote npm independente sob @lippelt/srd-*: contrato comum (dice presets, conditions, tracker fields, regras automatizadas) + 6 sistemas implementados — D&D 5e (2014 e 2024), Lancer, GUMSHOE, Daggerheart e Candela Obscura. Consumido pelo GM Control Room.',
+      'Cada sistema é um pacote npm independente sob @lippelt/srd-*: contrato comum (dice presets, conditions, tracker fields, regras automatizadas) + 11 sistemas — D&D 3.5/5e (2014 e 2024), Pathfinder 1e/2e, Starfinder 1e/2e, Lancer, GUMSHOE, Daggerheart e Candela Obscura. Consumido pelo GM Control Room.',
     stack: ['TypeScript', 'tsup', 'Vitest', 'npm workspaces', 'CI tag-release'],
-    badge: '6 pacotes no npm',
+    badge: '11 pacotes no npm',
     links: [
       {
         label: 'npm (@lippelt/srd-core)',
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     name: 'GM Control Room',
     tagline: 'Painel de controle de sessão de RPG em tempo real',
     description:
-      'Dashboard multi-dispositivo para o mestre: cenas adaptativas (typewriter, pergaminho, terminal CRT), iluminação/clima, mixer de áudio, integração com Spotify, dados, tracker de combate e histórico de rolagens — tudo sincronizado via WebSocket. A tela dos jogadores é PWA instalável. Suporta 6 sistemas via @lippelt/srd-*.',
+      'Dashboard multi-dispositivo para o mestre: cenas adaptativas (typewriter, pergaminho, terminal CRT), iluminação/clima, mixer de áudio, integração com Spotify, dados, tracker de combate e histórico de rolagens — tudo sincronizado via WebSocket. A tela dos jogadores é PWA instalável. Suporta 11 sistemas via @lippelt/srd-*.',
     stack: ['React', 'Node + Express', 'Socket.io', 'TypeScript (monorepo)', 'PWA'],
     links: [{ label: 'Código', href: 'https://github.com/flippelt/gm-control-room', primary: true }],
   },
