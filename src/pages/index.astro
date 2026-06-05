@@ -4,6 +4,12 @@ import Hero from '../components/Hero.tsx'
 import ProjectCard from '../components/ProjectCard.astro'
 import MetroNav from '../components/MetroNav.astro'
 import { projects } from '../data/projects'
+
+// Destaques primeiro (ordenados por `featured`), depois o resto — mesmo grid.
+const ordered = [
+  ...projects.filter((p) => p.featured).sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0)),
+  ...projects.filter((p) => !p.featured),
+]
 ---
 
 <Layout>
@@ -52,7 +58,7 @@ import { projects } from '../data/projects'
       </div>
 
       <div class="grid">
-        {projects.map((project) => <ProjectCard project={project} />)}
+        {ordered.map((project) => <ProjectCard project={project} />)}
       </div>
     </section>
 
