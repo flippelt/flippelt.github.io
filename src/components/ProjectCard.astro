@@ -25,12 +25,15 @@ const { project } = Astro.props
     {
       project.links.map((link) => (
         <a
-          class:list={['card__link', { 'card__link--primary': link.primary }]}
+          class:list={[
+            'card__link',
+            { 'card__link--primary': link.primary, 'card__link--release': link.release },
+          ]}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {link.label} ↗
+          {link.label} {link.release ? '⬇' : '↗'}
         </a>
       ))
     }

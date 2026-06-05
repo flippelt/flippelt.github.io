@@ -3,6 +3,8 @@ export interface ProjectLink {
   href: string
   /** Link principal do card (vira o CTA destacado). */
   primary?: boolean
+  /** Link de download (GitHub Releases): renderiza com seta de download ⬇. */
+  release?: boolean
 }
 
 export interface Project {
@@ -28,7 +30,13 @@ export const projects: Project[] = [
     stack: ['Tauri 2 (Rust)', 'React', 'Vite', 'TypeScript'],
     badge: 'App desktop',
     links: [
-      { label: 'Código', href: 'https://github.com/flippelt/scenario-forge', primary: true },
+      {
+        label: 'Baixar (Win · macOS · Linux)',
+        href: 'https://github.com/flippelt/scenario-forge/releases/latest',
+        primary: true,
+        release: true,
+      },
+      { label: 'Código', href: 'https://github.com/flippelt/scenario-forge' },
     ],
   },
   {
