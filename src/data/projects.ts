@@ -103,7 +103,16 @@ export const projects: Project[] = [
     description:
       'Dashboard multi-dispositivo para o mestre: cenas adaptativas (typewriter, pergaminho, terminal CRT), iluminação/clima, mixer de áudio, integração com Spotify, dados, tracker de combate e histórico de rolagens — tudo sincronizado via WebSocket. A tela dos jogadores é PWA instalável. Suporta 11 sistemas via @lippelt/srd-*.',
     stack: ['React', 'Node + Express', 'Socket.io', 'TypeScript (monorepo)', 'PWA'],
-    links: [{ label: 'Código', href: 'https://github.com/flippelt/gm-control-room', primary: true }],
+    badge: 'Self-hosted',
+    links: [
+      { label: 'Wiki', href: 'https://github.com/flippelt/gm-control-room/wiki', primary: true },
+      { label: 'Código', href: 'https://github.com/flippelt/gm-control-room' },
+      {
+        label: 'Release v0.1.0',
+        href: 'https://github.com/flippelt/gm-control-room/releases/latest',
+        release: true,
+      },
+    ],
   },
   {
     name: 'Campaign Codex',
