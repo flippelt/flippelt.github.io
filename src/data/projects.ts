@@ -23,7 +23,8 @@ export interface Project {
 // conteúdo privado, hubs internos e forks.
 export const projects: Project[] = [
   {
-    name: 'scenario-forge',
+    name: 'Scenario Forge',
+    featured: 5,
     tagline: 'Editor desktop para criar cenários do Immersive Terminal',
     description:
       'App nativo (Windows/macOS/Linux) que monta cenários por formulário — árvore de arquivos, flags de jogo (crack/tracer/lock), diálogo e eventos —, valida a consistência e testa no terminal real embutido (preview ao vivo via postMessage). Exporta a pasta versionável, um bundle JSON ou um link. Compartilha o motor (rpgterm-engine) com o terminal, então não há divergência de schema.',
@@ -88,7 +89,7 @@ export const projects: Project[] = [
     name: 'rpgterm-engine',
     tagline: 'Motor de lógica do Immersive Terminal, publicado no npm',
     description:
-      'O núcleo do terminal extraído como pacote, sem DOM: sistema de arquivos virtual, interpretador de comandos, mecânicas de crack/tracer/decrypt e composição de cenários. Fonte única consumida pelo terminal e pelo scenario-forge, com teste de paridade garantindo que ambos leem exatamente os mesmos flags.',
+      'O núcleo do terminal extraído como pacote, sem DOM: sistema de arquivos virtual, interpretador de comandos, mecânicas de crack/tracer/decrypt e composição de cenários. Fonte única consumida pelo terminal e pelo Scenario Forge, com teste de paridade garantindo que ambos leem exatamente os mesmos flags.',
     stack: ['JavaScript (ESM)', 'Vitest'],
     badge: 'Publicado no npm',
     links: [
