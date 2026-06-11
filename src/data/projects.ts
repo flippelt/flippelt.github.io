@@ -127,4 +127,17 @@ export const projects: Project[] = [
       { label: 'Código', href: 'https://github.com/flippelt/campaign-codex' },
     ],
   },
+  {
+    name: 'Guild Briefings',
+    featured: 4,
+    tagline: 'Dossiê diegético da party de RPG de fantasia para a 2ª tela da mesa',
+    description:
+      'Briefing da companhia de aventureiros para mostrar aos jogadores: cartazes de "procurado" dos personagens, quests em pergaminho com carimbo e selo de cera assinados pelo contratante, crônicas e divisão em parties. Importa fichas do D&D Beyond (JSON colado) ou manuais. PWA instalável, com dados versionáveis em briefing.json.',
+    stack: ['React', 'Vite', 'TypeScript', 'PWA'],
+    badge: 'Demo ao vivo',
+    links: [
+      { label: 'Demo ao vivo', href: 'https://flippelt.github.io/guild-briefings/', primary: true },
+      { label: 'Código', href: 'https://github.com/flippelt/guild-briefings' },
+    ],
+  },
 ]
