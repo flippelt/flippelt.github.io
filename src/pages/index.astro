@@ -4,12 +4,15 @@ import Hero from '../components/Hero.tsx'
 import ProjectCard from '../components/ProjectCard.astro'
 import MetroNav from '../components/MetroNav.astro'
 import { projects } from '../data/projects'
+import { foundryModules } from '../data/foundry-modules'
 
 // Destaques primeiro (ordenados por `featured`), depois o resto — mesmo grid.
 const ordered = [
   ...projects.filter((p) => p.featured).sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0)),
   ...projects.filter((p) => !p.featured),
 ]
+
+const modules = [...foundryModules].sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0))
 ---
 
 <Layout>
@@ -59,6 +62,21 @@ const ordered = [
 
       <div class="grid">
         {ordered.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
+
+    <section id="foundry" class="projects">
+      <div class="projects__intro">
+        <h2 class="projects__title">// módulos foundry</h2>
+        <p class="projects__lead">
+          Além das ferramentas, converto material de mesa para o Foundry VTT — dois módulos de
+          conteúdo para o sistema Wrath &amp; Glory (Warhammer 40.000), publicados no catálogo oficial
+          e instaláveis direto pelo Foundry. Projetos de fã, sem fins lucrativos.
+        </p>
+      </div>
+
+      <div class="grid">
+        {modules.map((project) => <ProjectCard project={project} />)}
       </div>
     </section>
 
