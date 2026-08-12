@@ -18,6 +18,13 @@ export const foundryModules: Project[] = [
         href: 'https://github.com/flippelt/WnG-Apocryphal-Adversaries',
         primary: true,
       },
+      {
+        // Enquanto não há listagem no catálogo, o manifest é o caminho de
+        // instalação: cola essa URL em "Install Module" no Foundry.
+        label: 'Instalar via manifest',
+        href: 'https://github.com/flippelt/WnG-Apocryphal-Adversaries/releases/latest/download/module.json',
+        release: true,
+      },
     ],
   },
   {
