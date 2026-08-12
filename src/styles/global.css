@@ -368,6 +368,132 @@ code {
   color: var(--accent);
 }
 
+/* ===================== Gate de acesso (login fake) ===================== */
+
+/* O overlay existe no HTML desde o primeiro paint (fundo já cobre a página);
+   quem o exibe é o script inline no <head> via html[data-gate='show'] — assim
+   não há flash de conteúdo antes da hidratação do React. */
+.gate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background:
+    radial-gradient(120% 80% at 50% -10%, #0b1a14 0%, var(--bg) 60%),
+    var(--bg);
+}
+
+html[data-gate='show'] {
+  overflow: hidden;
+}
+
+html[data-gate='show'] .gate {
+  display: grid;
+}
+
+.gate__crt {
+  width: min(720px, 100%);
+  /* Alto o bastante para as ~16 linhas do hack + botões sem "pular". */
+  min-height: min(560px, 84vh);
+}
+
+.gate__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: inherit;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  cursor: pointer; /* clique em qualquer lugar pula a digitação */
+}
+
+/* Reserva a altura das 16 linhas finais: o bloco é centralizado, e sem isso
+   cada linha digitada empurraria as anteriores para cima (jitter). */
+.gate__lines {
+  min-height: 24em; /* 16 linhas × line-height 1.5 */
+}
+
+.gate__line {
+  font-family: var(--font-mono);
+  font-size: clamp(0.82rem, 2.4vw, 1rem);
+  line-height: 1.5;
+  min-height: 1.5em; /* linha em branco mantém a altura */
+  white-space: pre-wrap;
+  color: var(--fg);
+}
+
+.gate__line--muted {
+  color: var(--fg-dim);
+}
+
+.gate__line--ok {
+  color: var(--accent);
+}
+
+/* Barra de progresso ASCII na mesma linha do rótulo. */
+.gate__bar {
+  color: var(--fg-dim);
+}
+
+.gate__bar--ok {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-soft);
+}
+
+.gate__cursor {
+  color: var(--accent);
+  animation: gate-blink 0.9s steps(1) infinite;
+}
+
+@keyframes gate-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.gate__actions {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  pointer-events: none;
+}
+
+.gate__actions--show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.gate__btn {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  color: var(--fg);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.gate__btn:hover,
+.gate__btn:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  text-shadow: 0 0 10px var(--accent);
+}
+
 /* ============================= Footer ============================= */
 
 .footer {
@@ -380,15 +506,24 @@ code {
 }
 
 .footer__note {
-  margin-bottom: 0;
   opacity: 0.7;
+}
+
+/* Troca de idioma + reabrir o terminal de acesso. */
+.footer__lang {
+  margin-bottom: 0;
+  font-size: 0.85rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .hero-cta-row {
+  .hero-cta-row,
+  .gate__actions {
     transition: none;
+  }
+  .gate__cursor {
+    animation: none;
   }
 }

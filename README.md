@@ -20,9 +20,22 @@ npm run check      # astro check (tipos)
 
 ## Conteúdo
 
-Os projetos exibidos ficam em [`src/data/projects.ts`](src/data/projects.ts).
+Os projetos exibidos ficam em [`src/data/projects.ts`](src/data/projects.ts)
+(e os módulos do Foundry em [`src/data/foundry-modules.ts`](src/data/foundry-modules.ts)).
 A lista é deliberadamente curada: apenas projetos **autorais e públicos**.
 Conteúdo privado, hubs internos e forks ficam de fora.
+
+## Idiomas e o "terminal de acesso"
+
+A página existe em **pt-br** (`/`) e **inglês** (`/en/`). Cada arquivo de dados
+tem um par `*.en.ts` com a tradução, e os textos de moldura (hero, seções,
+rodapé) vivem em [`src/i18n/ui.ts`](src/i18n/ui.ts) — ao mexer num, mexa no outro.
+
+Na primeira visita, um overlay de "login" ([`LoginGate`](src/components/LoginGate.tsx))
+digita credenciais fake e pede o idioma; a escolha vai para `localStorage`
+(chave `lang`) e um script inline no `<head>` de `/` decide entre mostrar o
+gate, seguir em pt-br ou redirecionar para `/en/`. O rodapé troca de idioma e
+reabre o terminal (limpando a chave). Crawlers/no-JS nunca veem o gate.
 
 ## Deploy (GitHub Pages → lippelt.dev)
 

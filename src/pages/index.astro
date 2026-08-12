@@ -1,93 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero.tsx'
-import ProjectCard from '../components/ProjectCard.astro'
-import MetroNav from '../components/MetroNav.astro'
-import { projects } from '../data/projects'
-import { foundryModules } from '../data/foundry-modules'
+import HomePage from '../components/HomePage.astro'
+import LoginGate from '../components/LoginGate.tsx'
 
-// Destaques primeiro (ordenados por `featured`), depois o resto — mesmo grid.
-const ordered = [
-  ...projects.filter((p) => p.featured).sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0)),
-  ...projects.filter((p) => !p.featured),
-]
-
-const modules = [...foundryModules].sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0))
+const base = import.meta.env.BASE_URL
+const enHref = base + 'en/'
 ---
 
-<Layout>
-  <MetroNav />
-  <main>
-    <section id="inicio" class="hero" aria-label="Apresentação">
-      <Hero client:load />
-    </section>
+<Layout locale="pt-br">
+  <!-- Antes do primeiro paint: escolha lembrada 'en' → redireciona; sem
+       escolha → liga o overlay de login (html[data-gate='show'], que o CSS
+       usa para mostrar o .gate e travar o scroll); 'pt-br' → segue direto.
+       Crawlers/no-JS nunca veem o gate: o conteúdo está no HTML normalmente. -->
+  <script is:inline define:vars={{ enHref }}>
+    try {
+      var lang = localStorage.getItem('lang')
+      if (lang === 'en') location.replace(enHref)
+      else if (!lang) document.documentElement.dataset.gate = 'show'
+    } catch (e) {
+      /* sem storage: segue para o conteúdo em pt-br */
+    }
+  </script>
 
-    <section id="sobre" class="about" aria-label="Sobre">
-      <h2 class="about__title">// sobre</h2>
-      <div class="about__body">
-        <p>
-          Sou o Felipe. Não sou programador profissional — sou um <strong>entusiasta autodidata</strong>
-          que mestra RPG de mesa e gosta de construir as próprias ferramentas, aprendendo conforme a
-          necessidade aparece.
-        </p>
-        <p>
-          Estudo as tecnologias e tento aplicá-las da melhor forma que consigo. Pelo caminho acumulo
-          <strong>mais erros do que acertos</strong>, mas encaro cada projeto como uma chance de melhorar
-          um pouco.
-        </p>
-        <p>
-          Cada projeto aqui surgiu de ideias para melhorar a <em>imersão e a diversão dos meus
-          jogadores</em> — e de ferramentas para me ajudar a conduzir melhor o fluxo do jogo e da
-          história. Uma wiki para organizar campanhas, um painel para controlar a sessão em tempo real,
-          um terminal retrô para criar atmosfera. Foram desenvolvidos porque eu não encontrava
-          ferramentas prontas para realizar essas ideias — e as poucas que cheguei a encontrar estavam
-          incompletas, não eram simples de usar, ou eram pagas.
-        </p>
-        <p>
-          Por isso estão todos aqui, abertos e reunidos. Não são perfeitos, mas são feitos com cuidado e
-          com vontade de acertar. Se foram úteis para mim, talvez sejam para você também — espero que
-          façam bom proveito. 🎲
-        </p>
-      </div>
-    </section>
+  <HomePage locale="pt-br" />
 
-    <section id="projetos" class="projects">
-      <div class="projects__intro">
-        <h2 class="projects__title">// projetos</h2>
-        <p class="projects__lead">
-          Um ecossistema de ferramentas para RPG de mesa — de uma biblioteca de UI publicada no npm a
-          um painel de controle de sessão em tempo real. Tudo autoral e aberto.
-        </p>
-      </div>
-
-      <div class="grid">
-        {ordered.map((project) => <ProjectCard project={project} />)}
-      </div>
-    </section>
-
-    <section id="foundry" class="projects">
-      <div class="projects__intro">
-        <h2 class="projects__title">// módulos foundry</h2>
-        <p class="projects__lead">
-          Além das ferramentas, converto material de mesa para o Foundry VTT — dois módulos de
-          conteúdo para o sistema Wrath &amp; Glory (Warhammer 40.000). Projetos de fã, sem fins
-          lucrativos.
-        </p>
-      </div>
-
-      <div class="grid">
-        {modules.map((project) => <ProjectCard project={project} />)}
-      </div>
-    </section>
-
-    <footer id="links" class="footer">
-      <p>
-        Feito por Felipe Lippelt ·
-        <a href="https://github.com/flippelt" target="_blank" rel="noopener noreferrer">github.com/flippelt</a>
-      </p>
-      <p class="footer__note">
-        Esta página é estática (Astro) e usa a biblioteca <code>rpg-prop-kit</code> para o visual CRT.
-      </p>
-    </footer>
-  </main>
+  <div class="gate" role="dialog" aria-modal="true" aria-label="Seleção de idioma / language selection">
+    <LoginGate client:load enHref={enHref} />
+  </div>
 </Layout>

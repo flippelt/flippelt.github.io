@@ -1,0 +1,99 @@
+---
+// Corpo da página inteiro, compartilhado entre / (pt-br) e /en/. Os ids das
+// seções (#inicio/#sobre/#projetos/#foundry/#links) são os mesmos nas duas
+// versões — só os rótulos mudam — para as âncoras funcionarem igual.
+import Hero from './Hero.tsx'
+import ProjectCard from './ProjectCard.astro'
+import MetroNav from './MetroNav.astro'
+import { ui, type Locale } from '../i18n/ui'
+import { projects } from '../data/projects'
+import { projectsEn } from '../data/projects.en'
+import { foundryModules } from '../data/foundry-modules'
+import { foundryModulesEn } from '../data/foundry-modules.en'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = ui[locale]
+const allProjects = locale === 'en' ? projectsEn : projects
+const allModules = locale === 'en' ? foundryModulesEn : foundryModules
+
+// Destaques primeiro (ordenados por `featured`), depois o resto — mesmo grid.
+const ordered = [
+  ...allProjects.filter((p) => p.featured).sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0)),
+  ...allProjects.filter((p) => !p.featured),
+]
+const modules = [...allModules].sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0))
+
+const base = import.meta.env.BASE_URL
+// footer.langSwitch.href é relativo à raiz ('/', '/en/') — prefixa a base.
+const langHref = t.footer.langSwitch.href === '/' ? base : base + t.footer.langSwitch.href.slice(1)
+---
+
+<MetroNav ariaLabel={t.nav.ariaLabel} stations={t.nav.stations} />
+<main>
+  <section id="inicio" class="hero" aria-label={t.hero.ariaLabel}>
+    <Hero client:load lines={t.hero.lines} navAriaLabel={t.hero.navAriaLabel} ctas={t.hero.ctas} />
+  </section>
+
+  <section id="sobre" class="about" aria-label={t.about.title.replace('// ', '')}>
+    <h2 class="about__title">{t.about.title}</h2>
+    <div class="about__body">
+      {t.about.paragraphsHtml.map((p) => <p set:html={p} />)}
+    </div>
+  </section>
+
+  <section id="projetos" class="projects">
+    <div class="projects__intro">
+      <h2 class="projects__title">{t.projects.title}</h2>
+      <p class="projects__lead">{t.projects.lead}</p>
+    </div>
+
+    <div class="grid">
+      {ordered.map((project) => <ProjectCard project={project} techAriaLabel={t.card.techAriaLabel} />)}
+    </div>
+  </section>
+
+  <section id="foundry" class="projects">
+    <div class="projects__intro">
+      <h2 class="projects__title">{t.foundry.title}</h2>
+      <p class="projects__lead">{t.foundry.lead}</p>
+    </div>
+
+    <div class="grid">
+      {modules.map((project) => <ProjectCard project={project} techAriaLabel={t.card.techAriaLabel} />)}
+    </div>
+  </section>
+
+  <footer id="links" class="footer">
+    <p>
+      {t.footer.madeBy} ·
+      <a href="https://github.com/flippelt" target="_blank" rel="noopener noreferrer">github.com/flippelt</a>
+    </p>
+    <p class="footer__note" set:html={t.footer.noteHtml} />
+    <p class="footer__lang">
+      <a href={langHref} data-set-lang={t.footer.langSwitch.setLang}>{t.footer.langSwitch.label}</a>
+      ·
+      <a href={base} data-set-lang="">{t.footer.reopenGate}</a>
+    </p>
+  </footer>
+</main>
+
+<script>
+  // Troca de idioma / reabrir o terminal: grava (ou limpa) a escolha ANTES de
+  // navegar — sem isso, quem está com lang='en' salvo e clica na versão em
+  // português seria redirecionado de volta para /en/ pelo script do <head>.
+  document.querySelectorAll<HTMLAnchorElement>('[data-set-lang]').forEach((a) => {
+    a.addEventListener('click', () => {
+      try {
+        const lang = a.dataset.setLang
+        if (lang) localStorage.setItem('lang', lang)
+        else localStorage.removeItem('lang')
+      } catch {
+        /* sem storage: só navega */
+      }
+    })
+  })
+</script>
