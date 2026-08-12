@@ -3,16 +3,16 @@
 // Clickable (anchor jumps, smooth-scroll via global scroll-behavior) and
 // scrollspy-highlighted so you always see where you are. Hidden on small
 // screens, where normal scrolling is the natural affordance.
-const stations = [
-  { id: 'inicio', label: 'início' },
-  { id: 'sobre', label: 'sobre' },
-  { id: 'projetos', label: 'projetos' },
-  { id: 'foundry', label: 'foundry' },
-  { id: 'links', label: 'links' }
-]
+// Stations/labels come from src/i18n/ui.ts via props (PT-BR and EN pages).
+interface Props {
+  ariaLabel: string
+  stations: { id: string; label: string }[]
+}
+
+const { ariaLabel, stations } = Astro.props
 ---
 
-<nav class="metro" aria-label="Mapa da página">
+<nav class="metro" aria-label={ariaLabel}>
   <ul class="metro__line">
     {
       stations.map((s, i) => (

@@ -33,7 +33,7 @@ export const foundryModules: Project[] = [
     tagline: 'O material do Apocrypha jogável no Foundry: arquétipos, espécies, talentos e poderes',
     description:
       'Adaptação do An Abundance of Apocrypha e suas expansões para o sistema Wrath & Glory. O compêndio traz 181 arquétipos (com variantes de espécie), 18 pacotes de ascensão, 249 talentos, 199 poderes psíquicos, 29 espécies, 15 facções, o arsenal completo (armas, armaduras, equipamento e augméticas), 64 blocos de NPC e 173 diários — tudo integrado ao gerador de personagem do sistema. Mantenho o módulo a partir do trabalho original do Owen May, acompanhando as versões novas do sistema e do Foundry.',
-    stack: ['Foundry VTT v11–v14', 'Wrath & Glory', 'YAML → LevelDB', 'foundry-cli'],
+    stack: ['Foundry VTT v11–v14', 'Wrath & Glory', 'YAML → LevelDB', 'foundry-cli', 'CI de release'],
     badge: 'Publicado no Foundry',
     links: [
       {

@@ -3,9 +3,11 @@ import type { Project } from '../data/projects'
 
 interface Props {
   project: Project
+  /** Rótulo acessível da lista de tecnologias (muda com o idioma). */
+  techAriaLabel?: string
 }
 
-const { project } = Astro.props
+const { project, techAriaLabel = 'Tecnologias' } = Astro.props
 ---
 
 <article class:list={['card', { 'card--shiny': project.featured }]}>
@@ -17,7 +19,7 @@ const { project } = Astro.props
   <p class="card__tagline">{project.tagline}</p>
   <p class="card__desc">{project.description}</p>
 
-  <ul class="card__stack" aria-label="Tecnologias">
+  <ul class="card__stack" aria-label={techAriaLabel}>
     {project.stack.map((tech) => <li>{tech}</li>)}
   </ul>
 
