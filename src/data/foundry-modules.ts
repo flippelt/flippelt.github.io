@@ -9,7 +9,7 @@ export const foundryModules: Project[] = [
     featured: 1,
     tagline: 'Bestiário de Wrath & Glory para Foundry VTT — dez facções completas',
     description:
-      'Conversão do An Abundance of Apocryphal Adversaries, o bestiário do Nathan Dowdell, feita com a permissão dele. São centenas de ameaças prontas para arrastar no mapa: Orks, Necrons, Tyranids, Drukhari, T’au, Asuryani, Legiões Demoníacas, Astra Militarum, a miscelânea (Slaugth, Hrud, Seraphon e os Agentes do Imperium) e os Heretic Astartes com as cinco legiões de culto — cada ameaça com armas, talentos, habilidades e opções de tier, além dos traços de adversário, relíquias e disciplinas psíquicas de cada facção.',
+      'Conversão do An Abundance of Apocryphal Adversaries, o bestiário do Nathan Dowdell, feita com a permissão dele. São centenas de ameaças prontas para arrastar no mapa: Orks, Necrons, Tyranids, Drukhari, T’au, Asuryani, Legiões Demoníacas, Astra Militarum, a miscelânea (Slaugth, Hrud, Seraphon e os Agentes do Imperium) e os Heretic Astartes com as legiões traidoras — cada ameaça com armas, talentos, habilidades e opções de tier, além dos traços de adversário, relíquias e disciplinas psíquicas de cada facção.',
     stack: ['Foundry VTT v11–v14', 'Wrath & Glory', 'YAML → LevelDB', 'foundry-cli', 'CI de release'],
     badge: 'Módulo Foundry VTT',
     links: [
