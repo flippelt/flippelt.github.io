@@ -25,6 +25,6 @@ const enHref = base + 'en/'
   <HomePage locale="pt-br" />
 
   <div class="gate" role="dialog" aria-modal="true" aria-label="Seleção de idioma / language selection">
-    <LoginGate client:load enHref={enHref} />
+    <LoginGate client:only="react" enHref={enHref} />
   </div>
 </Layout>

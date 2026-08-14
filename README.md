@@ -23,7 +23,10 @@ npm run check      # astro check (tipos)
 Os projetos exibidos ficam em [`src/data/projects.ts`](src/data/projects.ts)
 (e os módulos do Foundry em [`src/data/foundry-modules.ts`](src/data/foundry-modules.ts)).
 A lista é deliberadamente curada: apenas projetos **autorais e públicos**.
-Conteúdo privado, hubs internos e forks ficam de fora.
+Conteúdo privado, hubs internos e forks (ex.: `lancer-briefings`) ficam de fora.
+
+Os cards de app/lib agrupam-se por família (`terminal`, `gm`, `secondScreen`,
+`kit`) — o rótulo de cada família vive em [`src/i18n/ui.ts`](src/i18n/ui.ts).
 
 ## Idiomas e o "terminal de acesso"
 
@@ -34,29 +37,19 @@ rodapé) vivem em [`src/i18n/ui.ts`](src/i18n/ui.ts) — ao mexer num, mexa no o
 Na primeira visita, um overlay de "login" ([`LoginGate`](src/components/LoginGate.tsx))
 digita credenciais fake e pede o idioma; a escolha vai para `localStorage`
 (chave `lang`) e um script inline no `<head>` de `/` decide entre mostrar o
-gate, seguir em pt-br ou redirecionar para `/en/`. O rodapé troca de idioma e
-reabre o terminal (limpando a chave). Crawlers/no-JS nunca veem o gate.
+gate, seguir em pt-br ou redirecionar para `/en/`. Clique ou qualquer tecla
+pula a digitação. Depois do gate, o hero não redigita. O rodapé troca de idioma
+e reabre o terminal (limpando a chave). Crawlers/no-JS nunca veem o gate.
 
-## Deploy (GitHub Pages → lippelt.dev)
+## Deploy (GitHub Pages)
 
-A configuração já está pronta: [`public/CNAME`](public/CNAME) aponta para
-`lippelt.dev`, o `site` do Astro está em `https://lippelt.dev` e há um workflow
-de deploy em [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-(hoje com gatilho **manual**, para não rodar antes da hora).
+O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+publica em `https://flippelt.github.io` a cada push na `main` (e também
+via *workflow_dispatch*). Em *Settings → Pages*, a source precisa ser
+**GitHub Actions**.
 
-**Checklist de go-live:**
+Domínio próprio (`lippelt.dev`) fica para um passo separado: registrar o DNS,
+adicionar `public/CNAME` e apontar `site` no `astro.config.mjs`.
 
-1. **Domínio** — ter o `lippelt.dev` registrado e acesso ao DNS.
-2. **DNS** — apontar para o GitHub Pages:
-   - apex `lippelt.dev` → registros `A` para `185.199.108–111.153`
-     (ou `ALIAS`/`ANAME` → `flippelt.github.io`);
-   - `www` → `CNAME` para `flippelt.github.io`.
-3. **Visibilidade** — o repositório precisa ser **público** (plano grátis) ou
-   estar em **GitHub Pro** (repo privado com Pages).
-4. **Pages** — em *Settings → Pages*, definir *Source = GitHub Actions* e o
-   *Custom domain = lippelt.dev* (deixe "Enforce HTTPS" ligado).
-5. **Ativar o deploy** — trocar o gatilho do workflow de `workflow_dispatch`
-   para `on: push` (ou rodá-lo manualmente em *Actions*).
-
-Enquanto isso não acontece, dá para servir em qualquer host estático com
-`npm run build` (saída em `dist/`).
+Enquanto isso, dá para servir em qualquer host estático com `npm run build`
+(saída em `dist/`).

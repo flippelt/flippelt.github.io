@@ -5,14 +5,18 @@ interface Props {
   project: Project
   /** Rótulo acessível da lista de tecnologias (muda com o idioma). */
   techAriaLabel?: string
+  /** Borda holográfica — só nas âncoras do ecossistema. */
+  shiny?: boolean
+  heading?: 'h3' | 'h4'
 }
 
-const { project, techAriaLabel = 'Tecnologias' } = Astro.props
+const { project, techAriaLabel = 'Tecnologias', shiny = false, heading = 'h3' } = Astro.props
+const Heading = heading
 ---
 
-<article class:list={['card', { 'card--shiny': project.featured }]}>
+<article class:list={['card', { 'card--shiny': shiny }]}>
   <header class="card__head">
-    <h3 class="card__name">{project.name}</h3>
+    <Heading class="card__name">{project.name}</Heading>
     {project.badge && <span class="card__badge">{project.badge}</span>}
   </header>
 

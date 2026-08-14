@@ -21,6 +21,36 @@ html {
   scroll-behavior: smooth;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 200;
+  transform: translateY(-120%);
+  padding: 0.45rem 0.9rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border-radius: 0 0 6px 6px;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 body {
   margin: 0;
   background:
@@ -55,12 +85,23 @@ code {
   padding: clamp(1rem, 4vw, 3rem);
 }
 
+.hero:focus {
+  outline: none;
+}
+
 /* O CRTScreen do rpg-prop-kit é o quadro; aqui só dimensionamos. Largura ampla
    (próxima das outras seções) mas reduzida o suficiente para não invadir o
    menu lateral de metrô em telas largas. */
 .hero-crt {
   width: min(1180px, 100%);
   min-height: min(440px, 70vh);
+}
+
+/* Placeholder do hero antes da hidratação (client:only). */
+.hero-crt--pending {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center, #0b1a14 0%, #04080a 80%);
 }
 
 .hero-inner {
@@ -72,7 +113,7 @@ code {
 }
 
 /* A última linha do boot (o nome) ganha presença de título. */
-.hero-inner :global(.rpk-boot__line:nth-child(4)) {
+.hero-inner .rpk-boot__line:nth-child(4) {
   font-family: var(--font-display);
   font-size: clamp(2.6rem, 9vw, 4.5rem);
   line-height: 1.05;
@@ -185,6 +226,25 @@ code {
   margin: 0;
 }
 
+.family + .family {
+  margin-top: clamp(2.25rem, 6vw, 3.5rem);
+}
+
+.family__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.5vw, 1.8rem);
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.06em;
+}
+
+.family__lead {
+  color: var(--fg-dim);
+  margin: 0 0 1.15rem;
+  max-width: 58ch;
+  font-size: 0.95rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
@@ -219,7 +279,7 @@ code {
     rgba(0, 0, 0, 0.16) 2px 4px
   );
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.16;
 }
 
 .card:hover {
@@ -452,6 +512,13 @@ html[data-gate='show'] .gate {
   }
 }
 
+.gate__skip {
+  margin: 1.1rem 0 0;
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  color: var(--fg-dim);
+  letter-spacing: 0.03em;
+}
+
 .gate__actions {
   margin-top: 1.6rem;
   display: flex;
@@ -505,6 +572,12 @@ html[data-gate='show'] .gate {
   font-size: 0.9rem;
 }
 
+.footer__cta {
+  color: var(--fg);
+  font-size: 1.02rem;
+  margin: 0 0 1rem;
+}
+
 .footer__note {
   opacity: 0.7;
 }
@@ -513,6 +586,53 @@ html[data-gate='show'] .gate {
 .footer__lang {
   margin-bottom: 0;
   font-size: 0.85rem;
+}
+
+/* Substitui a metro nav em telas estreitas (a metro some abaixo de 1080px). */
+.dock {
+  display: none;
+}
+
+@media (max-width: 1080px) {
+  html {
+    scroll-padding-bottom: calc(3.75rem + env(safe-area-inset-bottom));
+  }
+
+  .dock {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 80;
+    pointer-events: auto;
+    gap: 0.15rem;
+    justify-content: space-around;
+    padding: 0.45rem 0.4rem calc(0.45rem + env(safe-area-inset-bottom));
+    background: rgba(4, 8, 10, 0.92);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+  }
+
+  .dock__link {
+    flex: 1;
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-dim);
+    padding: 0.35rem 0.2rem;
+    border-radius: 4px;
+  }
+
+  .dock__link[aria-current='true'] {
+    color: var(--accent);
+    background: var(--accent-soft);
+    text-shadow: 0 0 8px var(--accent-soft);
+  }
+
+  .footer {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

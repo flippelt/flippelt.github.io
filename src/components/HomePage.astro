@@ -6,7 +6,7 @@ import Hero from './Hero.tsx'
 import ProjectCard from './ProjectCard.astro'
 import MetroNav from './MetroNav.astro'
 import { ui, type Locale } from '../i18n/ui'
-import { projects } from '../data/projects'
+import { FAMILY_ORDER, projects } from '../data/projects'
 import { projectsEn } from '../data/projects.en'
 import { foundryModules } from '../data/foundry-modules'
 import { foundryModulesEn } from '../data/foundry-modules.en'
@@ -20,22 +20,39 @@ const t = ui[locale]
 const allProjects = locale === 'en' ? projectsEn : projects
 const allModules = locale === 'en' ? foundryModulesEn : foundryModules
 
-// Destaques primeiro (ordenados por `featured`), depois o resto — mesmo grid.
-const ordered = [
-  ...allProjects.filter((p) => p.featured).sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0)),
-  ...allProjects.filter((p) => !p.featured),
-]
-const modules = [...allModules].sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0))
+const families = FAMILY_ORDER.map((id) => ({
+  id,
+  ...t.families[id],
+  items: allProjects.filter((p) => p.family === id),
+}))
 
 const base = import.meta.env.BASE_URL
 // footer.langSwitch.href é relativo à raiz ('/', '/en/') — prefixa a base.
 const langHref = t.footer.langSwitch.href === '/' ? base : base + t.footer.langSwitch.href.slice(1)
 ---
 
+<a class="skip-link" href="#sobre">{t.skipToContent}</a>
 <MetroNav ariaLabel={t.nav.ariaLabel} stations={t.nav.stations} />
+<nav class="dock" aria-label={t.nav.ariaLabel}>
+  {
+    t.nav.stations.map((s, i) => (
+      <a
+        class="dock__link"
+        href={`#${s.id}`}
+        data-stop={s.id}
+        aria-current={i === 0 ? 'true' : undefined}
+      >
+        {s.label}
+      </a>
+    ))
+  }
+</nav>
 <main>
-  <section id="inicio" class="hero" aria-label={t.hero.ariaLabel}>
-    <Hero client:load lines={t.hero.lines} navAriaLabel={t.hero.navAriaLabel} ctas={t.hero.ctas} />
+  <h1 class="visually-hidden">{t.h1}</h1>
+  <section id="inicio" class="hero" tabindex="-1" aria-label={t.hero.ariaLabel}>
+    <Hero client:only="react" lines={t.hero.lines} navAriaLabel={t.hero.navAriaLabel} ctas={t.hero.ctas}>
+      <div class="hero-crt hero-crt--pending" aria-hidden="true"></div>
+    </Hero>
   </section>
 
   <section id="sobre" class="about" aria-label={t.about.title.replace('// ', '')}>
@@ -51,9 +68,24 @@ const langHref = t.footer.langSwitch.href === '/' ? base : base + t.footer.langS
       <p class="projects__lead">{t.projects.lead}</p>
     </div>
 
-    <div class="grid">
-      {ordered.map((project) => <ProjectCard project={project} techAriaLabel={t.card.techAriaLabel} />)}
-    </div>
+    {
+      families.map((fam) => (
+        <div class="family">
+          <h3 class="family__title">{fam.title}</h3>
+          <p class="family__lead">{fam.lead}</p>
+          <div class="grid">
+            {fam.items.map((project) => (
+              <ProjectCard
+                project={project}
+                shiny={!!project.featured}
+                heading="h4"
+                techAriaLabel={t.card.techAriaLabel}
+              />
+            ))}
+          </div>
+        </div>
+      ))
+    }
   </section>
 
   <section id="foundry" class="projects">
@@ -63,11 +95,12 @@ const langHref = t.footer.langSwitch.href === '/' ? base : base + t.footer.langS
     </div>
 
     <div class="grid">
-      {modules.map((project) => <ProjectCard project={project} techAriaLabel={t.card.techAriaLabel} />)}
+      {allModules.map((project) => <ProjectCard project={project} techAriaLabel={t.card.techAriaLabel} />)}
     </div>
   </section>
 
   <footer id="links" class="footer">
+    <p class="footer__cta" set:html={t.footer.ctaHtml} />
     <p>
       {t.footer.madeBy} ·
       <a href="https://github.com/flippelt" target="_blank" rel="noopener noreferrer">github.com/flippelt</a>

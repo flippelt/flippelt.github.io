@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: 'VT323';
+        src: url('../node_modules/@fontsource/vt323/files/vt323-latin-400-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Share Tech Mono';
+        src: url('../node_modules/@fontsource/share-tech-mono/files/share-tech-mono-latin-400-normal.woff2') format('woff2');
+      }
+      html, body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #04080a;
+      }
+      .frame {
+        box-sizing: border-box;
+        width: 1200px;
+        height: 630px;
+        padding: 72px 80px;
+        background:
+          repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.22) 2px 4px),
+          radial-gradient(120% 80% at 50% -10%, #0b1a14 0%, #04080a 60%);
+        color: #d6f5e3;
+        font-family: 'Share Tech Mono', ui-monospace, monospace;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 16px solid #07110c;
+      }
+      .muted { color: #7fae93; font-size: 26px; letter-spacing: 0.04em; margin: 0 0 8px; }
+      .ok { color: #39ff89; font-size: 26px; margin: 0 0 28px; }
+      h1 {
+        font-family: 'VT323', monospace;
+        font-size: 92px;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        margin: 0 0 12px;
+        color: #d6f5e3;
+        line-height: 0.95;
+      }
+      .tag { color: #7fae93; font-size: 30px; margin: 0 0 36px; }
+      .bar {
+        color: #39ff89;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <p class="muted">&gt; booting rpg.toolkit // felipe lippelt</p>
+      <p class="ok">&gt; carregando módulos de mesa... ok</p>
+      <h1>FELIPE LIPPELT</h1>
+      <p class="tag">ferramentas para mestres e mesas de RPG</p>
+      <p class="bar">flippelt.github.io</p>
+    </div>
+  </body>
+</html>
