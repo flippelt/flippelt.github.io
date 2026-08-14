@@ -6,7 +6,6 @@ import type { Project } from './projects'
 export const foundryModules: Project[] = [
   {
     name: 'Apocryphal Adversaries',
-    featured: 1,
     tagline: 'Bestiário de Wrath & Glory para Foundry VTT — dez facções completas',
     description:
       'Conversão do An Abundance of Apocryphal Adversaries, o bestiário do Nathan Dowdell, feita com a permissão dele. São centenas de ameaças prontas para arrastar no mapa: Orks, Necrons, Tyranids, Drukhari, T’au, Asuryani, Legiões Demoníacas, Astra Militarum, a miscelânea (Slaugth, Hrud, Seraphon e os Agentes do Imperium) e os Heretic Astartes com as legiões traidoras — cada ameaça com armas, talentos, habilidades e opções de tier, além dos traços de adversário, relíquias e disciplinas psíquicas de cada facção.',
@@ -29,7 +28,6 @@ export const foundryModules: Project[] = [
   },
   {
     name: 'An Abundance of Apocrypha',
-    featured: 2,
     tagline: 'O material do Apocrypha jogável no Foundry: arquétipos, espécies, talentos e poderes',
     description:
       'Adaptação do An Abundance of Apocrypha e suas expansões para o sistema Wrath & Glory. O compêndio traz 181 arquétipos (com variantes de espécie), 18 pacotes de ascensão, 249 talentos, 199 poderes psíquicos, 29 espécies, 15 facções, o arsenal completo (armas, armaduras, equipamento e augméticas), 64 blocos de NPC e 173 diários — tudo integrado ao gerador de personagem do sistema. Mantenho o módulo a partir do trabalho original do Owen May, acompanhando as versões novas do sistema e do Foundry.',

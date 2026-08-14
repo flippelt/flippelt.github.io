@@ -1,55 +1,9 @@
 import type { Project } from './projects'
 
-// English version of src/data/projects.ts — same projects, same order, same
+// English version of src/data/projects.ts — same apps, same order, same
 // links/featured/stack; only the copy is translated. Keep the two files in
 // sync when adding or removing a project.
 export const projectsEn: Project[] = [
-  {
-    name: 'Scenario Forge',
-    featured: 5,
-    tagline: 'Desktop editor for authoring Immersive Terminal scenarios',
-    description:
-      'Native app (Windows/macOS/Linux) that builds scenarios through forms — file tree, game flags (crack/tracer/lock), dialogue and events —, validates their consistency and tests them in a real embedded terminal (live preview via postMessage). Exports a versionable folder, a JSON bundle or a link. Shares its engine (rpgterm-engine) with the terminal, so there is no schema drift.',
-    stack: ['Tauri 2 (Rust)', 'React', 'Vite', 'TypeScript'],
-    badge: 'Desktop app',
-    links: [
-      {
-        label: 'Download (Win · macOS · Linux)',
-        href: 'https://github.com/flippelt/scenario-forge/releases/latest',
-        primary: true,
-        release: true,
-      },
-      { label: 'Source', href: 'https://github.com/flippelt/scenario-forge' },
-    ],
-  },
-  {
-    name: 'gmcr-srd-systems',
-    tagline: 'SRD rules monorepo for 11 RPG systems (D&D, Pathfinder, Starfinder, Lancer, Daggerheart…)',
-    description:
-      'Each system is an independent npm package under @lippelt/srd-*: a shared contract (dice presets, conditions, tracker fields, automated rules) + 11 systems — D&D 3.5/5e (2014 and 2024), Pathfinder 1e/2e, Starfinder 1e/2e, Lancer, GUMSHOE, Daggerheart and Candela Obscura. Consumed by GM Control Room.',
-    stack: ['TypeScript', 'tsup', 'Vitest', 'npm workspaces', 'CI tag-release'],
-    badge: '11 packages on npm',
-    links: [
-      {
-        label: 'npm (@lippelt/srd-core)',
-        href: 'https://www.npmjs.com/package/@lippelt/srd-core',
-        primary: true,
-      },
-      { label: 'Source', href: 'https://github.com/flippelt/gmcr-srd-systems' },
-    ],
-  },
-  {
-    name: 'rpg-prop-kit',
-    tagline: 'React component library with a retro CRT aesthetic',
-    description:
-      'Package published on npm: CRT screens, a typewriter effect and boot sequences for RPG tools. It is what gives this very page its look.',
-    stack: ['React', 'TypeScript', 'Vite (library)', 'Vitest'],
-    badge: 'Published on npm',
-    links: [
-      { label: 'npm', href: 'https://www.npmjs.com/package/rpg-prop-kit', primary: true },
-      { label: 'Source', href: 'https://github.com/flippelt/rpg-prop-kit' },
-    ],
-  },
   {
     name: 'Immersive Terminal',
     featured: 1,
@@ -68,15 +22,16 @@ export const projectsEn: Project[] = [
     ],
   },
   {
-    name: 'rpgterm-engine',
-    tagline: 'The Immersive Terminal logic engine, published on npm',
+    name: 'Campaign Codex',
+    featured: 2,
+    tagline: 'Static, themeable RPG campaign wiki',
     description:
-      'The terminal core extracted as a DOM-free package: virtual file system, command interpreter, crack/tracer/decrypt mechanics and scenario composition. The single source consumed by both the terminal and Scenario Forge, with a parity test guaranteeing they read exactly the same flags.',
-    stack: ['JavaScript (ESM)', 'Vitest'],
-    badge: 'Published on npm',
+      'Multi-campaign wiki generator from Markdown: lore, maps, NPCs, events and characters, with visual themes per genre (sci-fi, fantasy, cyberpunk and more).',
+    stack: ['Astro', 'TypeScript', 'Content Collections'],
+    badge: 'Live demo',
     links: [
-      { label: 'npm', href: 'https://www.npmjs.com/package/rpgterm-engine', primary: true },
-      { label: 'Source', href: 'https://github.com/flippelt/rpgterm-engine' },
+      { label: 'Live demo', href: 'https://flippelt.github.io/campaign-codex/', primary: true },
+      { label: 'Source', href: 'https://github.com/flippelt/campaign-codex' },
     ],
   },
   {
@@ -98,19 +53,6 @@ export const projectsEn: Project[] = [
     ],
   },
   {
-    name: 'Campaign Codex',
-    featured: 2,
-    tagline: 'Static, themeable RPG campaign wiki',
-    description:
-      'Multi-campaign wiki generator from Markdown: lore, maps, NPCs, events and characters, with visual themes per genre (sci-fi, fantasy, cyberpunk and more).',
-    stack: ['Astro', 'TypeScript', 'Content Collections'],
-    badge: 'Live demo',
-    links: [
-      { label: 'Live demo', href: 'https://flippelt.github.io/campaign-codex/', primary: true },
-      { label: 'Source', href: 'https://github.com/flippelt/campaign-codex' },
-    ],
-  },
-  {
     name: 'Guild Briefings',
     featured: 4,
     tagline: "Diegetic fantasy-party dossier for the table's second screen",
@@ -121,6 +63,24 @@ export const projectsEn: Project[] = [
     links: [
       { label: 'Live demo', href: 'https://flippelt.github.io/guild-briefings/', primary: true },
       { label: 'Source', href: 'https://github.com/flippelt/guild-briefings' },
+    ],
+  },
+  {
+    name: 'Scenario Forge',
+    featured: 5,
+    tagline: 'Desktop editor for authoring Immersive Terminal scenarios',
+    description:
+      'Native app (Windows/macOS/Linux) that builds scenarios through forms — file tree, game flags (crack/tracer/lock), dialogue and events —, validates their consistency and tests them in a real embedded terminal (live preview via postMessage). Exports a versionable folder, a JSON bundle or a link. Shares its engine (rpgterm-engine) with the terminal, so there is no schema drift.',
+    stack: ['Tauri 2 (Rust)', 'React', 'Vite', 'TypeScript'],
+    badge: 'Desktop app',
+    links: [
+      {
+        label: 'Download (Win · macOS · Linux)',
+        href: 'https://github.com/flippelt/scenario-forge/releases/latest',
+        primary: true,
+        release: true,
+      },
+      { label: 'Source', href: 'https://github.com/flippelt/scenario-forge' },
     ],
   },
 ]

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { CRTScreen } from 'rpg-prop-kit'
+import { markFromGate, setPageInert } from '../lib/gate'
 
 export interface LoginGateProps {
   /** URL da versão em inglês (ex.: "/en/"). */
@@ -17,8 +18,8 @@ type Step =
   | { kind: 'bar'; label: string }
 
 // A tela toda é pré-idioma, então as linhas são neutras/técnicas — o "hacker"
-// preenchendo as credenciais antes de liberar o acesso. Um clique (ou Enter/
-// Esc) pula a animação.
+// preenchendo as credenciais antes de liberar o acesso. Um clique (ou qualquer
+// tecla, menos Tab/modificadores) pula a animação.
 const STEPS: Step[] = [
   { kind: 'type', text: '> remote access // flippelt.github.io', status: 'muted' },
   { kind: 'type', text: '> resolving host... 185.199.108.153', status: 'muted' },
@@ -74,12 +75,24 @@ function finalLines(): RenderLine[] {
  * para /en/.
  */
 export default function LoginGate({ enHref }: LoginGateProps) {
+  // Sem o overlay (visitante que já escolheu idioma) o componente não pode
+  // rodar: senão anima escondido, foca o botão e deixa a página `inert`.
+  const [enabled] = useState(
+    () => typeof document !== 'undefined' && document.documentElement.dataset.gate === 'show',
+  )
   const [lines, setLines] = useState<RenderLine[]>([])
   const [done, setDone] = useState(false)
   const firstBtn = useRef<HTMLButtonElement>(null)
   const skipped = useRef(false)
 
   useEffect(() => {
+    if (!enabled) return
+    setPageInert(true)
+    return () => setPageInert(false)
+  }, [enabled])
+
+  useEffect(() => {
+    if (!enabled) return
     let cancelled = false
     let timer: number | undefined
     const wait = (ms: number) =>
@@ -137,9 +150,9 @@ export default function LoginGate({ enHref }: LoginGateProps) {
       cancelled = true
       if (timer !== undefined) window.clearTimeout(timer)
     }
-  }, [])
+  }, [enabled])
 
-  // Clique/Enter/Esc antes do fim: pula direto para a sequência completa.
+  // Clique / qualquer tecla (exceto Tab e modificadores) pula a digitação.
   const skip = () => {
     if (done || skipped.current) return
     skipped.current = true
@@ -148,31 +161,39 @@ export default function LoginGate({ enHref }: LoginGateProps) {
   }
 
   useEffect(() => {
+    if (!enabled) return
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === 'Escape') skip()
+      if (e.metaKey || e.ctrlKey || e.altKey) return
+      if (e.key === 'Tab') return
+      skip()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [done])
+  }, [done, enabled])
 
   // Terminou → foco no primeiro botão (teclado navega direto).
   useEffect(() => {
-    if (done) firstBtn.current?.focus()
-  }, [done])
+    if (enabled && done) firstBtn.current?.focus()
+  }, [done, enabled])
 
   const choose = (lang: 'pt-br' | 'en') => {
+    markFromGate()
     try {
       localStorage.setItem('lang', lang)
     } catch {
       /* sem storage (modo privado etc.): segue sem lembrar */
     }
+    setPageInert(false)
     if (lang === 'en') {
       window.location.href = enHref
     } else {
       delete document.documentElement.dataset.gate
+      document.getElementById('inicio')?.focus({ preventScroll: true })
     }
   }
+
+  if (!enabled) return null
 
   return (
     <CRTScreen theme="phosphor" className="gate__crt">
@@ -195,6 +216,11 @@ export default function LoginGate({ enHref }: LoginGateProps) {
             </div>
           ))}
         </div>
+        {!done && (
+          <p className="gate__skip">
+            ▸ clique ou pressione uma tecla para pular // click or press any key to skip
+          </p>
+        )}
         <div className={`gate__actions${done ? ' gate__actions--show' : ''}`} aria-hidden={!done}>
           <button
             ref={firstBtn}
