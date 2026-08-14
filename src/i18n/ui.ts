@@ -1,8 +1,6 @@
 // Strings de interface das duas versões da página. O conteúdo dos cards vive
 // em src/data/* (projects.ts / projects.en.ts etc.); aqui fica só o texto de
 // moldura: hero, navegação, títulos de seção, prosa do "sobre" e rodapé.
-import type { ProjectFamily } from '../data/projects'
-
 export type Locale = 'pt-br' | 'en'
 
 export interface BootLineDef {
@@ -35,7 +33,7 @@ export interface UIStrings {
     paragraphsHtml: string[]
   }
   projects: { title: string; lead: string }
-  families: Record<ProjectFamily, { title: string; lead: string }>
+  packages: { title: string; lead: string }
   foundry: { title: string; lead: string }
   card: { techAriaLabel: string }
   footer: {
@@ -81,6 +79,7 @@ export const ui: Record<Locale, UIStrings> = {
         { id: 'inicio', label: 'início' },
         { id: 'sobre', label: 'sobre' },
         { id: 'projetos', label: 'projetos' },
+        { id: 'pacotes', label: 'pacotes' },
         { id: 'foundry', label: 'foundry' },
         { id: 'links', label: 'links' },
       ],
@@ -95,25 +94,11 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projetos',
-      lead: 'Um ecossistema, não uma lista solta: o terminal que os jogadores hackeiam, o painel que o mestre conduz, a 2ª tela da mesa — e os pacotes. Tudo autoral e aberto.',
+      lead: 'Um ecossistema de ferramentas para RPG de mesa — de um terminal retrô a um painel de controle de sessão em tempo real. Tudo autoral e aberto.',
     },
-    families: {
-      terminal: {
-        title: 'terminal',
-        lead: 'Os jogadores exploram um sistema diegético; o mestre escreve o cenário e o motor é o mesmo nos dois lados.',
-      },
-      gm: {
-        title: 'mesa do mestre',
-        lead: 'Controle da sessão em tempo real, com regras de 11 sistemas encaixadas no mesmo contrato.',
-      },
-      secondScreen: {
-        title: '2ª tela',
-        lead: 'O que fica virado para os jogadores: o dossiê da party e a wiki da campanha.',
-      },
-      kit: {
-        title: 'pacotes',
-        lead: 'A biblioteca de UI que esta página usa — e que as outras ferramentas também podem usar.',
-      },
+    packages: {
+      title: '// pacotes',
+      lead: 'Bibliotecas publicadas no npm: a UI CRT desta página, o motor do terminal e as regras dos 11 sistemas do GM Control Room.',
     },
     foundry: {
       title: '// módulos foundry',
@@ -160,6 +145,7 @@ export const ui: Record<Locale, UIStrings> = {
         { id: 'inicio', label: 'home' },
         { id: 'sobre', label: 'about' },
         { id: 'projetos', label: 'projects' },
+        { id: 'pacotes', label: 'packages' },
         { id: 'foundry', label: 'foundry' },
         { id: 'links', label: 'links' },
       ],
@@ -174,25 +160,11 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projects',
-      lead: "An ecosystem, not a loose list: the terminal players hack, the panel the GM runs, the table's second screen — and the packages. All original, all open.",
+      lead: 'An ecosystem of tools for tabletop RPGs — from a retro terminal to a real-time session control panel. All original, all open.',
     },
-    families: {
-      terminal: {
-        title: 'terminal',
-        lead: 'Players explore a diegetic system; the GM authors the scenario; both sides share the same engine.',
-      },
-      gm: {
-        title: "GM's table",
-        lead: 'Real-time session control, with rules for 11 systems on one shared contract.',
-      },
-      secondScreen: {
-        title: 'second screen',
-        lead: 'What faces the players: the party dossier and the campaign wiki.',
-      },
-      kit: {
-        title: 'packages',
-        lead: 'The UI library this page uses — and that the other tools can use too.',
-      },
+    packages: {
+      title: '// packages',
+      lead: 'Libraries published on npm: the CRT UI this page uses, the terminal engine, and the rules for the 11 GM Control Room systems.',
     },
     foundry: {
       title: '// foundry modules',

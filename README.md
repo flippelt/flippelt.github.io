@@ -20,13 +20,11 @@ npm run check      # astro check (tipos)
 
 ## Conteúdo
 
-Os projetos exibidos ficam em [`src/data/projects.ts`](src/data/projects.ts)
-(e os módulos do Foundry em [`src/data/foundry-modules.ts`](src/data/foundry-modules.ts)).
+Os apps ficam em [`src/data/projects.ts`](src/data/projects.ts) (destaques
+primeiro), as libs npm em [`src/data/packages.ts`](src/data/packages.ts) e os
+módulos Foundry em [`src/data/foundry-modules.ts`](src/data/foundry-modules.ts).
 A lista é deliberadamente curada: apenas projetos **autorais e públicos**.
 Conteúdo privado, hubs internos e forks (ex.: `lancer-briefings`) ficam de fora.
-
-Os cards de app/lib agrupam-se por família (`terminal`, `gm`, `secondScreen`,
-`kit`) — o rótulo de cada família vive em [`src/i18n/ui.ts`](src/i18n/ui.ts).
 
 ## Idiomas e o "terminal de acesso"
 
