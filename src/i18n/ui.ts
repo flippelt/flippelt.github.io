@@ -95,7 +95,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projetos',
-      lead: 'Um ecossistema, não uma lista solta: o terminal que os jogadores hackeiam, o painel que o mestre conduz, a 2ª tela da mesa — e os tijolos compartilhados. Tudo autoral e aberto.',
+      lead: 'Um ecossistema, não uma lista solta: o terminal que os jogadores hackeiam, o painel que o mestre conduz, a 2ª tela da mesa — e a biblioteca de UI. Tudo autoral e aberto.',
     },
     families: {
       terminal: {
@@ -111,7 +111,7 @@ export const ui: Record<Locale, UIStrings> = {
         lead: 'O que fica virado para os jogadores: o dossiê da party e a wiki da campanha.',
       },
       kit: {
-        title: 'tijolos',
+        title: 'biblioteca',
         lead: 'A biblioteca de UI que esta página usa — e que as outras ferramentas também podem usar.',
       },
     },
@@ -174,7 +174,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projects',
-      lead: "An ecosystem, not a loose list: the terminal players hack, the panel the GM runs, the table's second screen — and the shared building blocks. All original, all open.",
+      lead: "An ecosystem, not a loose list: the terminal players hack, the panel the GM runs, the table's second screen — and the UI library. All original, all open.",
     },
     families: {
       terminal: {
@@ -190,7 +190,7 @@ export const ui: Record<Locale, UIStrings> = {
         lead: 'What faces the players: the party dossier and the campaign wiki.',
       },
       kit: {
-        title: 'building blocks',
+        title: 'library',
         lead: 'The UI library this page uses — and that the other tools can use too.',
       },
     },
