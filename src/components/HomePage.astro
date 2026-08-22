@@ -75,7 +75,7 @@ const langHref = t.footer.langSwitch.href === '/' ? base : base + t.footer.langS
         ordered.map((project) => (
           <ProjectCard
             project={project}
-            shiny={!!project.featured}
+            shiny={project.shiny ?? !!project.featured}
             techAriaLabel={t.card.techAriaLabel}
           />
         ))
