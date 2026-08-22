@@ -15,8 +15,14 @@ export interface Project {
   links: ProjectLink[]
   /** Selo curto (ex.: "Publicado no npm"). */
   badge?: string
-  /** Destaque: ordenados primeiro (menor = antes) e com borda "shiny". */
+  /** Destaque: ordenados primeiro (menor = antes). Borda shiny se `shiny` não for false. */
   featured?: number
+  /** Borda holográfica. Default: ligado quando há `featured`. */
+  shiny?: boolean
+}
+
+export function isShiny(project: Project): boolean {
+  return project.shiny ?? project.featured != null
 }
 
 // Apps autorais e públicos. Pacotes npm ficam em packages.ts; módulos
@@ -56,6 +62,7 @@ export const projects: Project[] = [
   {
     name: 'GM Control Room',
     featured: 3,
+    shiny: false,
     tagline: 'Painel de controle de sessão de RPG em tempo real',
     description:
       'Dashboard multi-dispositivo para o mestre: cenas adaptativas (typewriter, pergaminho, terminal CRT), iluminação/clima, mixer de áudio, integração com Spotify, dados, tracker de combate e histórico de rolagens — tudo sincronizado via WebSocket. A tela dos jogadores é PWA instalável. Suporta 11 sistemas via @lippelt/srd-*.',
@@ -87,6 +94,7 @@ export const projects: Project[] = [
   {
     name: 'Scenario Forge',
     featured: 5,
+    shiny: false,
     tagline: 'Editor desktop para criar cenários do Immersive Terminal',
     description:
       'App nativo (Windows/macOS/Linux) que monta cenários por formulário — árvore de arquivos, flags de jogo (crack/tracer/lock), diálogo e eventos —, valida a consistência e testa no terminal real embutido (preview ao vivo via postMessage). Exporta a pasta versionável, um bundle JSON ou um link. Compartilha o motor (rpgterm-engine) com o terminal, então não há divergência de schema.',

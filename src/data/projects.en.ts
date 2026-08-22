@@ -37,6 +37,7 @@ export const projectsEn: Project[] = [
   {
     name: 'GM Control Room',
     featured: 3,
+    shiny: false,
     tagline: 'Real-time RPG session control panel',
     description:
       "Multi-device dashboard for the GM: adaptive scenes (typewriter, parchment, CRT terminal), lighting/weather, an audio mixer, Spotify integration, dice, a combat tracker and roll history — all synced over WebSocket. The players' screen is an installable PWA. Supports 11 systems via @lippelt/srd-*.",
@@ -68,6 +69,7 @@ export const projectsEn: Project[] = [
   {
     name: 'Scenario Forge',
     featured: 5,
+    shiny: false,
     tagline: 'Desktop editor for authoring Immersive Terminal scenarios',
     description:
       'Native app (Windows/macOS/Linux) that builds scenarios through forms — file tree, game flags (crack/tracer/lock), dialogue and events —, validates their consistency and tests them in a real embedded terminal (live preview via postMessage). Exports a versionable folder, a JSON bundle or a link. Shares its engine (rpgterm-engine) with the terminal, so there is no schema drift.',
