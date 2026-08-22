@@ -21,9 +21,9 @@ export const npmPackages: Project[] = [
   },
   {
     name: 'rpg-prop-kit',
-    tagline: 'Biblioteca de componentes React com estética CRT retrô',
+    tagline: 'Componentes React para mesa: CRT retrô e analógicos',
     description:
-      'Pacote publicado no npm: telas CRT, efeito de máquina de escrever e sequências de boot para ferramentas de RPG. É o que dá o visual desta própria página.',
+      'Pacote no npm: telas CRT, typewriter e boot, mais pergaminho, lacre de cera, cartaz, placa de metal e dataslate. As classes CSS funcionam sem React. É o que dá o visual desta própria página.',
     stack: ['React', 'TypeScript', 'Vite (library)', 'Vitest'],
     badge: 'Publicado no npm',
     links: [

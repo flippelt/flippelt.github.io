@@ -98,7 +98,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     packages: {
       title: '// libs',
-      lead: 'Bibliotecas publicadas no npm: a UI CRT desta página, o motor do terminal e as regras dos 11 sistemas do GM Control Room.',
+      lead: 'Bibliotecas publicadas no npm: a UI CRT (e analógica) desta página, o motor do terminal e as regras dos 11 sistemas do GM Control Room.',
     },
     foundry: {
       title: '// módulos foundry',
@@ -164,7 +164,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     packages: {
       title: '// libs',
-      lead: 'Libraries published on npm: the CRT UI this page uses, the terminal engine, and the rules for the 11 GM Control Room systems.',
+      lead: 'Libraries published on npm: the CRT (and analog) UI this page uses, the terminal engine, and the rules for the 11 GM Control Room systems.',
     },
     foundry: {
       title: '// foundry modules',
