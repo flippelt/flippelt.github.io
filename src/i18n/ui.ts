@@ -94,11 +94,11 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projetos',
-      lead: 'Um ecossistema de ferramentas para RPG de mesa — de um terminal retrô a um painel de controle de sessão em tempo real. Tudo autoral e aberto.',
+      lead: 'Um ecossistema de ferramentas para RPG de mesa — terminal retrô, painel de sessão, wiki, briefings e handouts em PDF. Tudo autoral e aberto.',
     },
     packages: {
       title: '// libs',
-      lead: 'Bibliotecas publicadas no npm: a UI CRT desta página, o motor do terminal e as regras dos 11 sistemas do GM Control Room.',
+      lead: 'Bibliotecas publicadas no npm: a UI CRT (e analógica) desta página, o motor do terminal e as regras dos 11 sistemas do GM Control Room.',
     },
     foundry: {
       title: '// módulos foundry',
@@ -160,11 +160,11 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projects',
-      lead: 'An ecosystem of tools for tabletop RPGs — from a retro terminal to a real-time session control panel. All original, all open.',
+      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings and printable PDF handouts. All original, all open.',
     },
     packages: {
       title: '// libs',
-      lead: 'Libraries published on npm: the CRT UI this page uses, the terminal engine, and the rules for the 11 GM Control Room systems.',
+      lead: 'Libraries published on npm: the CRT (and analog) UI this page uses, the terminal engine, and the rules for the 11 GM Control Room systems.',
     },
     foundry: {
       title: '// foundry modules',

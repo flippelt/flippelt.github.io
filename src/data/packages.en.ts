@@ -20,9 +20,9 @@ export const npmPackagesEn: Project[] = [
   },
   {
     name: 'rpg-prop-kit',
-    tagline: 'React component library with a retro CRT aesthetic',
+    tagline: 'React components for the table: CRT and analog props',
     description:
-      'Package published on npm: CRT screens, a typewriter effect and boot sequences for RPG tools. It is what gives this very page its look.',
+      'npm package: CRT screens, typewriter and boot sequences, plus parchment, wax seal, poster, metal plate and dataslate. CSS classes work without React. It is what gives this very page its look.',
     stack: ['React', 'TypeScript', 'Vite (library)', 'Vitest'],
     badge: 'Published on npm',
     links: [

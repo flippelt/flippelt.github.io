@@ -45,7 +45,7 @@ export const projects: Project[] = [
     featured: 2,
     tagline: 'Wiki de campanhas de RPG, estática e temática',
     description:
-      'Gerador de wiki multi-campanha a partir de Markdown: história, mapas, NPCs, eventos e personagens, com temas visuais por gênero (sci-fi, fantasia, cyberpunk e mais).',
+      'Gerador de wiki multi-campanha a partir de Markdown: história, mapas, NPCs, eventos e personagens, com temas visuais por gênero (sci-fi, fantasia, cyberpunk e mais). Depois da sessão, a página /recap/ transforma notas bagunçadas em arquivos prontos para o códice.',
     stack: ['Astro', 'TypeScript', 'Content Collections'],
     badge: 'Demo ao vivo',
     links: [
@@ -100,6 +100,17 @@ export const projects: Project[] = [
         release: true,
       },
       { label: 'Código', href: 'https://github.com/flippelt/scenario-forge' },
+    ],
+  },
+  {
+    name: 'mesa-press',
+    tagline: 'Markdown vira PDF de props para a mesa',
+    description:
+      'CLI que gera handouts imprimíveis em A5/A6: carta em velino, cartaz de aviso e dataslate sci-fi, com QR opcional para o códice ou o terminal. Feito para o jogador segurar o papel — o irmão impresso do rpg-prop-kit.',
+    stack: ['TypeScript', 'pdfkit', 'Vitest'],
+    badge: 'CLI',
+    links: [
+      { label: 'Código', href: 'https://github.com/flippelt/mesa-press', primary: true },
     ],
   },
 ]
