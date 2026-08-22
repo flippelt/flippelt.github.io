@@ -104,7 +104,7 @@ export const projects: Project[] = [
   },
   {
     name: 'mesa-press',
-    tagline: 'Markdown vira PDF de props para a mesa',
+    tagline: 'Transforme Markdown em props em PDF',
     description:
       'CLI que gera handouts imprimíveis em A5/A6: carta em velino, cartaz de aviso e dataslate sci-fi, com QR opcional para o códice ou o terminal. Feito para o jogador segurar o papel — o irmão impresso do rpg-prop-kit.',
     stack: ['TypeScript', 'pdfkit', 'Vitest'],
