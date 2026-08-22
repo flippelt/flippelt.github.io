@@ -6,7 +6,7 @@ import Hero from './Hero.tsx'
 import ProjectCard from './ProjectCard.astro'
 import MetroNav from './MetroNav.astro'
 import { ui, type Locale } from '../i18n/ui'
-import { projects } from '../data/projects'
+import { isShiny, projects } from '../data/projects'
 import { projectsEn } from '../data/projects.en'
 import { npmPackages } from '../data/packages'
 import { npmPackagesEn } from '../data/packages.en'
@@ -23,9 +23,11 @@ const allProjects = locale === 'en' ? projectsEn : projects
 const allPackages = locale === 'en' ? npmPackagesEn : npmPackages
 const allModules = locale === 'en' ? foundryModulesEn : foundryModules
 
+const byFeatured = (a: (typeof allProjects)[number], b: (typeof allProjects)[number]) =>
+  (a.featured ?? 999) - (b.featured ?? 999)
 const ordered = [
-  ...allProjects.filter((p) => p.featured).sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0)),
-  ...allProjects.filter((p) => !p.featured),
+  ...allProjects.filter(isShiny).sort(byFeatured),
+  ...allProjects.filter((p) => !isShiny(p)).sort(byFeatured),
 ]
 
 const base = import.meta.env.BASE_URL
@@ -75,7 +77,7 @@ const langHref = t.footer.langSwitch.href === '/' ? base : base + t.footer.langS
         ordered.map((project) => (
           <ProjectCard
             project={project}
-            shiny={project.shiny ?? !!project.featured}
+            shiny={isShiny(project)}
             techAriaLabel={t.card.techAriaLabel}
           />
         ))

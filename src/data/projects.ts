@@ -21,6 +21,10 @@ export interface Project {
   shiny?: boolean
 }
 
+export function isShiny(project: Project): boolean {
+  return project.shiny ?? project.featured != null
+}
+
 // Apps autorais e públicos. Pacotes npm ficam em packages.ts; módulos
 // Foundry em foundry-modules.ts. Fora de propósito: conteúdo privado,
 // hubs internos e forks (ex.: lancer-briefings — crédito no README daquele repo).
