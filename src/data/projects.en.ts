@@ -85,7 +85,7 @@ export const projectsEn: Project[] = [
   },
   {
     name: 'mesa-press',
-    tagline: 'Markdown to printable table props (PDF)',
+    tagline: 'Turn Markdown into PDF props',
     description:
       'CLI that renders printable A5/A6 handouts: a vellum letter, a notice poster and a sci-fi dataslate, with an optional QR pointing at the Codex or the terminal. Built for the player to hold the paper — the printed sibling of rpg-prop-kit.',
     stack: ['TypeScript', 'pdfkit', 'Vitest'],
