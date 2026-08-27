@@ -86,10 +86,21 @@ export const projectsEn: Project[] = [
     ],
   },
   {
+    name: 'session-kit',
+    tagline: 'One session YAML, every table tool format',
+    description:
+      'CLI that describes the encounter once and emits the native files for GM Control Room, Campaign Codex, Immersive Terminal, Guild Briefings, Lancer missions and mesa-press. You copy what you want into each repo — the kit does not publish or deploy.',
+    stack: ['TypeScript', 'Zod', 'yaml', 'Vitest'],
+    badge: 'CLI',
+    links: [
+      { label: 'Source', href: 'https://github.com/flippelt/session-kit', primary: true },
+    ],
+  },
+  {
     name: 'mesa-press',
     tagline: 'Turn Markdown into PDF props',
     description:
-      'CLI that renders printable A5/A6 handouts: a vellum letter, a notice poster and a sci-fi dataslate, with an optional QR pointing at the Codex or the terminal. Built for the player to hold the paper — the printed sibling of rpg-prop-kit.',
+      'CLI that renders printable A5/A6 handouts — letter, poster, dataslate, metal plate, telegram, dossier, edict, newspaper, ticket, envelope, postcard, cheque and report. Optional QR pointing at the Codex or the terminal. Built for the player to hold the paper; the printed sibling of rpg-prop-kit.',
     stack: ['TypeScript', 'pdfkit', 'Vitest'],
     badge: 'CLI',
     links: [
