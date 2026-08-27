@@ -88,13 +88,13 @@ export const ui: Record<Locale, UIStrings> = {
       title: '// sobre',
       paragraphsHtml: [
         'Sou o Felipe. <strong>Mestro RPG de mesa e construo as próprias ferramentas</strong>, aprendendo conforme a necessidade aparece. Não é o meu emprego — é o ofício que escolhi praticar.',
-        'Cada projeto aqui nasceu de uma ideia para melhorar a <em>imersão e a diversão dos meus jogadores</em>, ou para conduzir melhor o fluxo do jogo. Uma wiki para organizar campanhas, um painel para controlar a sessão em tempo real, um terminal retrô para criar atmosfera. Construí porque não encontrava ferramentas prontas — e as poucas que achei estavam incompletas, não eram simples de usar, ou eram pagas.',
+        'Cada projeto aqui nasceu de uma ideia para melhorar a <em>imersão e a diversão dos meus jogadores</em>, ou para conduzir melhor o fluxo do jogo. Uma wiki para organizar campanhas, um painel para controlar a sessão em tempo real, um terminal retrô para criar atmosfera, um compilador de sessão e handouts de papel. Construí porque não encontrava ferramentas prontas — e as poucas que achei estavam incompletas, não eram simples de usar, ou eram pagas.',
         'Por isso estão todos aqui, abertos e reunidos. Se foram úteis para mim, talvez sejam para você também. 🎲',
       ],
     },
     projects: {
       title: '// projetos',
-      lead: 'Um ecossistema de ferramentas para RPG de mesa — terminal retrô, painel de sessão, wiki, briefings e handouts em PDF. Tudo autoral e aberto.',
+      lead: 'Um ecossistema de ferramentas para RPG de mesa — terminal retrô, painel de sessão, wiki, briefings, handouts em PDF e um compilador de sessão. Tudo autoral e aberto.',
     },
     packages: {
       title: '// libs',
@@ -154,13 +154,13 @@ export const ui: Record<Locale, UIStrings> = {
       title: '// about',
       paragraphsHtml: [
         "I'm Felipe. <strong>I run tabletop RPGs and build my own tools</strong>, learning as the need shows up. This isn't my day job — it's the craft I chose to practice.",
-        "Every project here grew out of an idea to improve my <em>players' immersion and fun</em>, or to run the game more smoothly. A wiki to organise campaigns, a panel to control the session in real time, a retro terminal to set the mood. I built them because I couldn't find ready-made tools — and the few I did find were incomplete, not simple to use, or paid.",
+        "Every project here grew out of an idea to improve my <em>players' immersion and fun</em>, or to run the game more smoothly. A wiki to organise campaigns, a panel to control the session in real time, a retro terminal to set the mood, a session compiler and paper handouts. I built them because I couldn't find ready-made tools — and the few I did find were incomplete, not simple to use, or paid.",
         "That's why they are all here, open and gathered in one place. If they were useful to me, maybe they'll be useful to you too. 🎲",
       ],
     },
     projects: {
       title: '// projects',
-      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings and printable PDF handouts. All original, all open.',
+      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings, printable PDF handouts and a session compiler. All original, all open.',
     },
     packages: {
       title: '// libs',

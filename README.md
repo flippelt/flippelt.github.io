@@ -20,7 +20,7 @@ npm run check      # astro check (tipos)
 
 ## Conteúdo
 
-Os apps ficam em [`src/data/projects.ts`](src/data/projects.ts) (destaques
+Os apps e CLIs ficam em [`src/data/projects.ts`](src/data/projects.ts) (destaques
 primeiro), as libs npm em [`src/data/packages.ts`](src/data/packages.ts) e os
 módulos Foundry em [`src/data/foundry-modules.ts`](src/data/foundry-modules.ts).
 A lista é deliberadamente curada: apenas projetos **autorais e públicos**.

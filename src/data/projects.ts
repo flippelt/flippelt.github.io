@@ -25,7 +25,7 @@ export function isShiny(project: Project): boolean {
   return project.shiny ?? project.featured != null
 }
 
-// Apps autorais e públicos. Pacotes npm ficam em packages.ts; módulos
+// Apps e CLIs autorais e públicos. Pacotes npm ficam em packages.ts; módulos
 // Foundry em foundry-modules.ts. Fora de propósito: conteúdo privado,
 // hubs internos e forks (ex.: lancer-briefings — crédito no README daquele repo).
 export const projects: Project[] = [
@@ -111,10 +111,21 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: 'session-kit',
+    tagline: 'Um YAML de sessão, todos os formatos da mesa',
+    description:
+      'CLI que descreve o encontro uma vez e gera os arquivos nativos do GM Control Room, do Campaign Codex, do Immersive Terminal, do Guild Briefings, das missões Lancer e do mesa-press. Você copia o que quiser para cada repositório — o kit não publica nem faz deploy.',
+    stack: ['TypeScript', 'Zod', 'yaml', 'Vitest'],
+    badge: 'CLI',
+    links: [
+      { label: 'Código', href: 'https://github.com/flippelt/session-kit', primary: true },
+    ],
+  },
+  {
     name: 'mesa-press',
     tagline: 'Transforme Markdown em props em PDF',
     description:
-      'CLI que gera handouts imprimíveis em A5/A6: carta em velino, cartaz de aviso e dataslate sci-fi, com QR opcional para o códice ou o terminal. Feito para o jogador segurar o papel — o irmão impresso do rpg-prop-kit.',
+      'CLI que gera handouts imprimíveis em A5/A6 — carta, cartaz, dataslate, placa, telegrama, dossiê, édito, jornal, passagem, envelope, postal, cheque e relatório. QR opcional para o códice ou o terminal. Feito para o jogador segurar o papel; o irmão impresso do rpg-prop-kit.',
     stack: ['TypeScript', 'pdfkit', 'Vitest'],
     badge: 'CLI',
     links: [
