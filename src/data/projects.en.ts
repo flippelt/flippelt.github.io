@@ -70,18 +70,13 @@ export const projectsEn: Project[] = [
     name: 'Scenario Forge',
     featured: 5,
     shiny: false,
-    tagline: 'Desktop editor for authoring Immersive Terminal scenarios',
+    tagline: 'Web editor for authoring Immersive Terminal scenarios',
     description:
-      'Native app (Windows/macOS/Linux) that builds scenarios through forms — file tree, game flags (crack/tracer/lock), dialogue and events —, validates their consistency and tests them in a real embedded terminal (live preview via postMessage). Exports a versionable folder, a JSON bundle or a link. Shares its engine (rpgterm-engine) with the terminal, so there is no schema drift.',
-    stack: ['Tauri 2 (Rust)', 'React', 'Vite', 'TypeScript'],
-    badge: 'Desktop app',
+      'Build scenarios in the browser through forms — file tree, game flags (crack/tracer/lock), dialogue and events —, validate consistency and test them in a real embedded terminal (live preview). Exports a versionable folder (native folder in Chrome/Edge, zip elsewhere), a JSON bundle or a link. Shares its engine (rpgterm-engine) with the terminal, so there is no schema drift.',
+    stack: ['React', 'Vite', 'TypeScript'],
+    badge: 'Live demo',
     links: [
-      {
-        label: 'Download (Win · macOS · Linux)',
-        href: 'https://github.com/flippelt/scenario-forge/releases/latest',
-        primary: true,
-        release: true,
-      },
+      { label: 'Live demo', href: 'https://flippelt.github.io/scenario-forge/', primary: true },
       { label: 'Source', href: 'https://github.com/flippelt/scenario-forge' },
     ],
   },

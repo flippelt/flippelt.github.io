@@ -95,18 +95,13 @@ export const projects: Project[] = [
     name: 'Scenario Forge',
     featured: 5,
     shiny: false,
-    tagline: 'Editor desktop para criar cenários do Immersive Terminal',
+    tagline: 'Editor web para criar cenários do Immersive Terminal',
     description:
-      'App nativo (Windows/macOS/Linux) que monta cenários por formulário — árvore de arquivos, flags de jogo (crack/tracer/lock), diálogo e eventos —, valida a consistência e testa no terminal real embutido (preview ao vivo via postMessage). Exporta a pasta versionável, um bundle JSON ou um link. Compartilha o motor (rpgterm-engine) com o terminal, então não há divergência de schema.',
-    stack: ['Tauri 2 (Rust)', 'React', 'Vite', 'TypeScript'],
-    badge: 'App desktop',
+      'Monta cenários por formulário no navegador — árvore de arquivos, flags de jogo (crack/tracer/lock), diálogo e eventos —, valida a consistência e testa no terminal real embutido (preview ao vivo). Exporta a pasta versionável (pasta nativa no Chrome/Edge, zip nos outros), um bundle JSON ou um link. Compartilha o motor (rpgterm-engine) com o terminal, então não há divergência de schema.',
+    stack: ['React', 'Vite', 'TypeScript'],
+    badge: 'Demo ao vivo',
     links: [
-      {
-        label: 'Baixar (Win · macOS · Linux)',
-        href: 'https://github.com/flippelt/scenario-forge/releases/latest',
-        primary: true,
-        release: true,
-      },
+      { label: 'Demo ao vivo', href: 'https://flippelt.github.io/scenario-forge/', primary: true },
       { label: 'Código', href: 'https://github.com/flippelt/scenario-forge' },
     ],
   },
