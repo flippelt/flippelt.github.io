@@ -26,6 +26,13 @@ módulos Foundry em [`src/data/foundry-modules.ts`](src/data/foundry-modules.ts)
 A lista é deliberadamente curada: apenas projetos **autorais e públicos**.
 Conteúdo privado, hubs internos e forks (ex.: `lancer-briefings`) ficam de fora.
 
+Demos no ar (além desta landing):
+
+- [Immersive Terminal](https://flippelt.github.io/Immersive-Terminal-for-RPGs/)
+- [scenario-forge](https://flippelt.github.io/scenario-forge/)
+- [Campaign Codex](https://flippelt.github.io/campaign-codex/)
+- [Guild Briefings](https://flippelt.github.io/guild-briefings/)
+
 ## Idiomas e o "terminal de acesso"
 
 A página existe em **pt-br** (`/`) e **inglês** (`/en/`). Cada arquivo de dados
