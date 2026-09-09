@@ -94,7 +94,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projetos',
-      lead: 'Um ecossistema de ferramentas para RPG de mesa — terminal retrô, painel de sessão, wiki, briefings, handouts em PDF e um compilador de sessão. Tudo autoral e aberto.',
+      lead: 'Um ecossistema de ferramentas para RPG de mesa — terminal retrô, painel de sessão, wiki, briefings, handouts em PDF e um compilador de sessão — e um template de terminal para o README do GitHub. Tudo autoral e aberto.',
     },
     packages: {
       title: '// libs',
@@ -160,7 +160,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projects',
-      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings, printable PDF handouts and a session compiler. All original, all open.',
+      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings, printable PDF handouts and a session compiler — plus a terminal template for GitHub profile READMEs. All original, all open.',
     },
     packages: {
       title: '// libs',

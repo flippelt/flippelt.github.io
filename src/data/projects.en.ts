@@ -102,4 +102,20 @@ export const projectsEn: Project[] = [
       { label: 'Source', href: 'https://github.com/flippelt/mesa-press', primary: true },
     ],
   },
+  {
+    name: 'readme-term',
+    tagline: 'Animated brew terminal for a GitHub profile README',
+    description:
+      'Template: fill in a config.json, run python3 generate.py (stdlib only, Python 3.10+) and drop the SVG on your README. A daily Action redraws it when the version/age changes. Variants for brew, apt, winget, npm, pip, cargo, nix and more.',
+    stack: ['Python 3.10+', 'SVG', 'GitHub Actions'],
+    badge: 'Template',
+    links: [
+      {
+        label: 'Use this template',
+        href: 'https://github.com/flippelt/readme-term/generate',
+        primary: true,
+      },
+      { label: 'Source', href: 'https://github.com/flippelt/readme-term' },
+    ],
+  },
 ]
