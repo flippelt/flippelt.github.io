@@ -5,8 +5,25 @@ import type { Project } from './projects'
 // sync when adding or removing a project.
 export const projectsEn: Project[] = [
   {
-    name: 'Immersive Terminal',
+    name: 'OPORD',
     featured: 1,
+    tagline: 'Classified briefings for milsim clans',
+    description:
+      'A web generator for operation dossiers aimed at Arma 3, Squad and similar clans: CONFIDENTIAL cover sheet, OPORD (SMEAC), communiqué, SITREP, AAR, ORBAT, HVT card, 9-line CASEVAC and intel annex. Clan seal, watermark, PDF/PNG export. Runs in the browser, no server.',
+    stack: ['React', 'Vite', 'TypeScript', 'Vitest'],
+    badge: 'Live demo',
+    links: [
+      {
+        label: 'Live demo',
+        href: 'https://flippelt.github.io/opord/',
+        primary: true,
+      },
+      { label: 'Source', href: 'https://github.com/flippelt/opord' },
+    ],
+  },
+  {
+    name: 'Immersive Terminal',
+    featured: 2,
     tagline: 'Interactive retro terminal emulator for tabletop RPG sessions',
     description:
       'A playable terminal that simulates in-fiction systems (Alien, Lancer, Blade Runner, Fallout and more). The GM authors scenarios in JSON; players explore with commands, decrypt and crack files. Bilingual (PT-BR/EN) and 100% offline.',
@@ -23,7 +40,7 @@ export const projectsEn: Project[] = [
   },
   {
     name: 'Campaign Codex',
-    featured: 2,
+    featured: 3,
     tagline: 'Static, themeable RPG campaign wiki',
     description:
       'Multi-campaign wiki generator from Markdown: lore, maps, NPCs, events and characters, with visual themes per genre (sci-fi, fantasy, cyberpunk and more). After a session, /recap/ turns messy notes into drop-in Codex files.',
@@ -36,7 +53,7 @@ export const projectsEn: Project[] = [
   },
   {
     name: 'GM Control Room',
-    featured: 3,
+    featured: 4,
     shiny: false,
     tagline: 'Real-time RPG session control panel',
     description:
@@ -55,7 +72,7 @@ export const projectsEn: Project[] = [
   },
   {
     name: 'Guild Briefings',
-    featured: 4,
+    featured: 5,
     tagline: "Diegetic fantasy-party dossier for the table's second screen",
     description:
       'An adventuring-company briefing to show your players: character "wanted" posters, parchment quests stamped and wax-sealed by the quest giver, chronicles and party rosters. Imports character sheets from D&D Beyond (pasted JSON) or rulebooks. Installable PWA, with versionable data in briefing.json.',
@@ -68,7 +85,7 @@ export const projectsEn: Project[] = [
   },
   {
     name: 'Scenario Forge',
-    featured: 5,
+    featured: 6,
     shiny: false,
     tagline: 'Web editor for authoring Immersive Terminal scenarios',
     description:
