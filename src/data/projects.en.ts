@@ -9,7 +9,7 @@ export const projectsEn: Project[] = [
     featured: 1,
     tagline: 'Classified briefings for milsim clans',
     description:
-      'A web generator for operation dossiers aimed at Arma 3, Squad and similar clans: CONFIDENTIAL cover sheet, OPORD (SMEAC), communiqué, SITREP, AAR, ORBAT, HVT card, 9-line CASEVAC and intel annex. Clan seal, watermark, PDF/PNG export. Runs in the browser, no server.',
+      'A web generator for operation dossiers aimed at Arma 3, Squad and similar clans: CONFIDENTIAL cover sheet, OPORD (SMEAC), communiqué, SITREP, AAR, ORBAT, HVT card, 9-line CASEVAC and intel annex. Clan logo, watermark, PDF/PNG export. Runs in the browser, no server.',
     stack: ['React', 'Vite', 'TypeScript', 'Vitest'],
     badge: 'Live demo',
     links: [
