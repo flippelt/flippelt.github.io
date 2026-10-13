@@ -7,9 +7,9 @@ export const projectsEn: Project[] = [
   {
     name: 'OPORD',
     featured: 1,
-    tagline: 'Classified briefings for milsim clans',
+    tagline: 'Confidential briefings for milsim clans',
     description:
-      'A web generator for operation dossiers aimed at Arma 3, Squad and similar clans: CONFIDENTIAL cover sheet, OPORD (SMEAC), communiqué, SITREP, AAR, ORBAT, HVT card, 9-line CASEVAC and intel annex. Clan logo, watermark, PDF/PNG export. Runs in the browser, no server.',
+      'Put together your Arma 3 or Squad clan’s operation dossier so it looks like it came straight from HQ: CONFIDENTIAL cover sheet, SMEAC-format order, SITREP, AAR, ORBAT, HVT card, 9-line CASEVAC and intel annex. Drop in your clan logo and watermark, then export to PDF or PNG. It all runs in the browser, no server.',
     stack: ['React', 'Vite', 'TypeScript', 'Vitest'],
     badge: 'Live demo',
     links: [

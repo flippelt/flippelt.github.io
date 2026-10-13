@@ -32,9 +32,9 @@ export const projects: Project[] = [
   {
     name: 'OPORD',
     featured: 1,
-    tagline: 'Briefings classificados para clãs de milsim',
+    tagline: 'Briefings confidenciais para clãs de milsim',
     description:
-      'Gerador web de dossiê de operação para clãs de Arma 3, Squad e afins: capa CONFIDENCIAL, OPORD (SMEAC), comunicado, SITREP, AAR, ORBAT, cartão de HVT, CASEVAC em 9 linhas e anexo de intel. Logo do clã, marca d’água e exportação PDF/PNG. Tudo no navegador, sem servidor.',
+      'Monta o dossiê da operação do seu clã de Arma 3, Squad ou afins com cara de documento saído do QG: capa CONFIDENCIAL, ordem no formato SMEAC, SITREP, AAR, ORBAT, cartão de HVT, CASEVAC em 9 linhas e anexo de intel. Você coloca o logo do clã e a marca d’água e baixa em PDF ou PNG. Roda todo no navegador, sem servidor.',
     stack: ['React', 'Vite', 'TypeScript', 'Vitest'],
     badge: 'Demo ao vivo',
     links: [
