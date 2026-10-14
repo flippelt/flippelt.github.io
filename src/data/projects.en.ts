@@ -7,7 +7,7 @@ export const projectsEn: Project[] = [
   {
     name: 'OPORD',
     featured: 1,
-    tagline: 'Confidential briefings for milsim clans',
+    tagline: 'Classified briefings for milsim clans',
     description:
       'Put together your Arma 3 or Squad clan’s operation dossier so it looks like it came straight from HQ: CONFIDENTIAL cover sheet, SMEAC-format order, SITREP, AAR, ORBAT, HVT card, 9-line CASEVAC and intel annex. Drop in your clan logo and watermark, then export to PDF or PNG. It all runs in the browser, no server.',
     stack: ['React', 'Vite', 'TypeScript', 'Vitest'],

@@ -160,7 +160,7 @@ export const ui: Record<Locale, UIStrings> = {
     },
     projects: {
       title: '// projects',
-      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings, printable PDF handouts and a session compiler — a confidential briefing generator for milsim clans, plus a terminal template for GitHub profile READMEs. All original, all open.',
+      lead: 'An ecosystem of tools for tabletop RPGs — retro terminal, session panel, wiki, briefings, printable PDF handouts and a session compiler — a classified briefing generator for milsim clans, plus a terminal template for GitHub profile READMEs. All original, all open.',
     },
     packages: {
       title: '// libs',
