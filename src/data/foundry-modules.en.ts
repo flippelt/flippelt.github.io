@@ -8,20 +8,14 @@ export const foundryModulesEn: Project[] = [
     description:
       "A conversion of An Abundance of Apocryphal Adversaries, Nathan Dowdell's homebrew bestiary, made with his permission. Hundreds of threats ready to drop onto your maps: Orks, Necrons, Tyranids, Drukhari, T'au, Asuryani, the Daemonic Legions, the Astra Militarum, the miscellany (Slaugth, Hrud, Seraphon and the Agents of the Imperium) and the Heretic Astartes with the traitor legions — every threat with its weapons, talents, abilities and tier options, plus each faction's adversary traits, relics and psychic disciplines.",
     stack: ['Foundry VTT v11–v14', 'Wrath & Glory', 'YAML → LevelDB', 'foundry-cli', 'Release CI'],
-    badge: 'Foundry VTT module',
+    badge: 'Published on Foundry',
     links: [
       {
-        label: 'Source',
-        href: 'https://github.com/flippelt/WnG-Apocryphal-Adversaries',
+        label: 'Install on Foundry',
+        href: 'https://foundryvtt.com/packages/wng-apocryphal-adversaries',
         primary: true,
       },
-      {
-        // Not listed in the Foundry catalogue yet: installing means pasting
-        // this manifest URL into "Install Module" in Foundry.
-        label: 'Install via manifest',
-        href: 'https://github.com/flippelt/WnG-Apocryphal-Adversaries/releases/latest/download/module.json',
-        release: true,
-      },
+      { label: 'Source', href: 'https://github.com/flippelt/WnG-Apocryphal-Adversaries' },
     ],
   },
   {
